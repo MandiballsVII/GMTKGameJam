@@ -28,7 +28,6 @@ public class FrostConeAttack : MonoBehaviour
 
         if (Input.GetButtonDown("Fire4") && cooldownTimer <= 0f) // Asignar tecla que quieras
         {
-            print("Frost cone attack triggered in direction: " + lastDirection);
             PerformFrostCone(lastDirection);
             cooldownTimer = cooldown;
         }
