@@ -23,7 +23,7 @@ public class PlayerDash : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && !isDashing)
+        if (Input.GetButtonDown("Fire3") && canDash && !isDashing)
         {
             float inputX = Input.GetAxisRaw("Horizontal");
             int dashDirX = 0;
