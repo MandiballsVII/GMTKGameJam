@@ -34,7 +34,14 @@ public class PlayerMovement : MonoBehaviour
                 dirX = 0;
             }
         }
-  
+        if(dirX > 0)
+        {
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if(dirX < 0)
+        {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
     private void FixedUpdate()
     {        

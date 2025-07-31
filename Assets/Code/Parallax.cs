@@ -26,11 +26,11 @@ public class Parallax : MonoBehaviour
     }
     public void Update()
     {
-        if (cam.GetComponent<PlayerCam>().enabled)
-        {
-            Vector2 newPos = startPosition + cameraTravel * parallaxFactor;
-            transform.position = new Vector3(newPos.x, newPos.y, startZ);
-        }
+        //if (cam.GetComponent<PlayerCam>().enabled)
+        //{
+        //    Vector2 newPos = startPosition + cameraTravel * parallaxFactor;
+        //    transform.position = new Vector3(newPos.x, newPos.y, startZ);
+        //}
         
     }
 }
