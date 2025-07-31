@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class Sandball : MonoBehaviour
 {
+    [Header("<size=15><color=#008B8B>Lifetime</color></size>")]
     [SerializeField] private float lifetime = 3f;
+    [Space]
+    [Header("<size=15><color=#008B8B>Particles</color></size>")]
     [SerializeField] private GameObject hitEffect; // partículas o animación de destrucción
 
     private void Start()

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 496527510}
   - component: {fileID: 496527509}
   - component: {fileID: 496527508}
+  - component: {fileID: 496527512}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -281,6 +282,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496527512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496527507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e566ec60c2e634f9ad7447a9a45e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,6 +1587,7 @@ GameObject:
   - component: {fileID: 1498740622}
   - component: {fileID: 1498740623}
   - component: {fileID: 1498740624}
+  - component: {fileID: 1498740625}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1834,6 +1848,26 @@ MonoBehaviour:
   sandballPrefab: {fileID: 4876105183117772131, guid: 83896f43945443f4e9c39f93e07a8c79, type: 3}
   projectileSpeed: 10
   fireCooldown: 0.5
+--- !u!114 &1498740625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498740615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9c48775524cb0944b8c17b1743cc069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coneAngle: 45
+  coneLength: 5
+  freezeDuration: 2
+  affectedLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  cooldown: 1
+  frostParticlesPrefab: {fileID: 2453030887342606750, guid: 69653caecb3ec004d91a5dea10cd022b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class SandballShooter : MonoBehaviour
 {
-    [Header("Proyectil")]
+    [Header("<size=15><color=#008B8B>Proyectil</color></size>")]
     [SerializeField] private GameObject sandballPrefab;
+    [Space]
+    [Header("<size=15><color=#008B8B>Proyectile speed</color></size>")]
     [SerializeField] private float projectileSpeed = 10f;
+    [Space]
+    [Header("<size=15><color=#008B8B>Cooldown</color></size>")]
     [SerializeField] private float fireCooldown = 0.5f;
 
     private float lastFireTime;
