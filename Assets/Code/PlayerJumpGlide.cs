@@ -12,8 +12,7 @@ public class PlayerJumpGlide : MonoBehaviour
     [SerializeField] private float maxFallingSpeed;
     [Space]
     [Header("<size=15><color=#008B8B>Layers</color></size>")]
-    [SerializeField] private LayerMask jumpableGround;
-    
+    [SerializeField] private LayerMask jumpableGround;    
     [SerializeField] private LayerMask terrain;
     
     [Space]
@@ -22,10 +21,12 @@ public class PlayerJumpGlide : MonoBehaviour
     [SerializeField] private float size;
     [SerializeField] private float distance;
 
-    [SerializeField] private Transform LeftRayPoint;
-    [SerializeField] private Transform RightRayPoint;
-    [SerializeField] private float rayDistance;
+    //[SerializeField] private Transform LeftRayPoint;
+    //[SerializeField] private Transform RightRayPoint;
+    //[SerializeField] private float rayDistance;
 
+    [Space]
+    [Header("<size=15><color=#008B8B>Jump Buffer</color></size>")]
     [SerializeField] private float jumpBufferTime = 0.1f;
     private float jumpBufferCounter;
 
@@ -35,22 +36,10 @@ public class PlayerJumpGlide : MonoBehaviour
     private float coyoteTimeCounter;
     private bool coyoteTimeEnded;
 
-    [HideInInspector] public bool canGlide = false;
     [HideInInspector] public bool isJumping;
     private bool glideOutputAffecting;
 
-    [HideInInspector] public static bool isGlidingHard;
-    [HideInInspector] public static bool isGlidingNormally;
-    private bool glideSound = true;
-    private float gravityGlide = -1.3f;
-    private bool doGlide;
     private float drag = 25;
-
-    private GameObject breakablePlatformObject;
-
-    [HideInInspector] public bool inVerticalAirStream;
-
-    [HideInInspector] public int numberOfKeys = 0;
 
     IEnumerator JumpCooldown()
     {
@@ -72,41 +61,33 @@ public class PlayerJumpGlide : MonoBehaviour
         //RaycastHit2D rightRaycast = Physics2D.Raycast(RightRayPoint.position, Vector2.up, rayDistance, terrain);
         //Debug.DrawRay(LeftRayPoint.position, Vector2.up * rayDistance);
         //Debug.DrawRay(RightRayPoint.position, Vector2.up * rayDistance);
-        
-        
-            if (GetComponent<PlayerMovement>().controlsEnable)
+                
+        if (GetComponent<PlayerMovement>().controlsEnable)
+        {
+            if (jumpInput)
             {
-                if (jumpInput)
+                jumpBufferCounter = jumpBufferTime;
+            }
+            else
+            {
+                jumpBufferCounter -= Time.deltaTime;
+            }
+            if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
+            {
+                if (!isJumping)
                 {
-                    jumpBufferCounter = jumpBufferTime;
+                    isJumping = true;
+                    jumpBufferCounter = 0f;
                 }
-                else
+            }
+            if (isJumping)
+            {
+                buttonPressedTime += Time.deltaTime;
+                Jump();
+                if (buttonPressedTime >= jumpTime)
                 {
-                    jumpBufferCounter -= Time.deltaTime;
+                    isJumping = false;
                 }
-                if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
-                {
-                    if (!isJumping)
-                    {
-                        isJumping = true;
-                        jumpBufferCounter = 0f; // Consumimos el buffer
-                    }
-                }
-
-
-
-                if (isJumping)
-                    {
-
-                        buttonPressedTime += Time.deltaTime;
-                        Jump();
-
-
-                        if (buttonPressedTime >= jumpTime)
-                        {
-
-                            isJumping = false;
-                        }
                         //if (leftRaycast && !rightRaycast)
                         //{
                         //    Debug.DrawRay(LeftRayPoint.position, Vector2.up * rayDistance, Color.red);
@@ -117,60 +98,43 @@ public class PlayerJumpGlide : MonoBehaviour
                         //    Debug.DrawRay(RightRayPoint.position, Vector2.up * rayDistance, Color.red);
                         //    transform.position -= new Vector3(1f, 0);
                         //}
-                    }
-                    else
-                    {
-                        buttonPressedTime = 0;
-                    }
-
-                    if (coyoteTimeCounter > 0)
-                    {
-                        coyoteTimeEnded = false;
-                    }
-                    else
-                    {
-                        coyoteTimeEnded = true;
-                    }
-
-                    if (isFalling())
-                    {
-
-                        if (rb.velocity.y < -30)
-                        {
-                            rb.velocity = new Vector2(rb.velocity.x, -maxFallingSpeed);
-                        }
-                    }
-
-                    if (jumpOutput)
-                    {
-
-                        isJumping = false;
-
-                        coyoteTimeCounter = 0f;
-
-                    
-                    }
-
-                    if (isGrounded())
-                    {
-                        drag = 20;
-                        gravityGlide = -1.3f;
-                        rb.drag = 0;
-
-                        coyoteTimeCounter = coyoteTime;
-
-                    
-
-                        canGlide = false;
-                    }
-
-                    else
-                    {
-                        coyoteTimeCounter -= 2 * Time.deltaTime;
-                    }
+            }
+            else
+            {
+                buttonPressedTime = 0;
+            }
+            if (coyoteTimeCounter > 0)
+            {
+               coyoteTimeEnded = false;
+            }
+            else
+            {
+               coyoteTimeEnded = true;
+            }
+            if (isFalling())
+            {
+                if (rb.velocity.y < -30)
+                {
+                     rb.velocity = new Vector2(rb.velocity.x, -maxFallingSpeed);
                 }
-        
-        
+            }
+            if (jumpOutput)
+            {
+                isJumping = false;
+                coyoteTimeCounter = 0f;
+            }
+            if (isGrounded())
+            {
+                drag = 20;
+                rb.drag = 0;
+                coyoteTimeCounter = coyoteTime;
+            }
+            else
+            {
+                coyoteTimeCounter -= 2 * Time.deltaTime;
+            }
+        }
+            
     }
     private void FixedUpdate()
     {
@@ -178,11 +142,8 @@ public class PlayerJumpGlide : MonoBehaviour
     }
 
     private void Jump()
-    {
-        
-            rb.velocity = new Vector2(rb.velocity.x, jumpForceCurve.Evaluate(Mathf.Clamp01(buttonPressedTime / jumpTime)));
-        
-        
+    {        
+        rb.velocity = new Vector2(rb.velocity.x, jumpForceCurve.Evaluate(Mathf.Clamp01(buttonPressedTime / jumpTime)));   
     }
 
     
@@ -206,21 +167,21 @@ public class PlayerJumpGlide : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("BreakablePlatform"))
-        {
-            breakablePlatformObject = collision.gameObject;
-        }
+        //if (collision.gameObject.CompareTag("BreakablePlatform"))
+        //{
+        //    breakablePlatformObject = collision.gameObject;
+        //}
         
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("MovingPlatform"))
-        {
-            if (isGrounded())
-            {
-                rb.interpolation = RigidbodyInterpolation2D.Extrapolate;
-            }
-        }
+        //if (collision.gameObject.CompareTag("MovingPlatform"))
+        //{
+        //    if (isGrounded())
+        //    {
+        //        rb.interpolation = RigidbodyInterpolation2D.Extrapolate;
+        //    }
+        //}
     }
 
     //private void OnCollisionExit2D(Collision2D collision)

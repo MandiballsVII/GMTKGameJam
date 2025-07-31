@@ -1370,6 +1370,7 @@ GameObject:
   - component: {fileID: 1498740618}
   - component: {fileID: 1498740620}
   - component: {fileID: 1498740621}
+  - component: {fileID: 1498740622}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1578,13 +1579,23 @@ MonoBehaviour:
   center: 0.32
   size: 0.25
   distance: 0
-  LeftRayPoint: {fileID: 0}
-  RightRayPoint: {fileID: 0}
-  rayDistance: 0
-  canGlide: 0
+  jumpBufferTime: 0.1
   isJumping: 0
-  inVerticalAirStream: 0
-  numberOfKeys: 0
+--- !u!114 &1498740622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498740615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c30ee265e66a644b3a4bf98af8b5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashForce: 20
+  dashDuration: 0.2
+  dashCooldown: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

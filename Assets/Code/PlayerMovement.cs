@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerJumpGlide playerJumpGlide;
     private float timeToCancelExtraVelocity = 0.2f;
     private float timer = 0f;
+    [HideInInspector] public int lastFacingDirection = 1; // 1 = derecha, -1 = izquierda
 
     private void Start()
     {
@@ -19,42 +20,29 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update()
-    {
-        
+    {       
         if (controlsEnable)
-            {
+        {
             if (Input.GetAxisRaw("Horizontal") <= -1 || Input.GetAxisRaw("Horizontal") >= 1)
-                {
-                    dirX = Input.GetAxisRaw("Horizontal");
-                }
-                else
-                {
-                    dirX = 0;
-                }
+            {
+                dirX = Input.GetAxisRaw("Horizontal");
+                // Actualiza la dirección de cara si hay input
+                lastFacingDirection = dirX > 0 ? 1 : -1;
             }
-        
-        
-        
+            else
+            {
+                dirX = 0;
+            }
+        }
+  
     }
     private void FixedUpdate()
-    {
-        
-            if(controlsEnable)
-            {
-                
-                    Vector2 inputVelocity = new Vector2(dirX * moveSpeed * Time.deltaTime, rb.velocity.y);
-                    rb.velocity = inputVelocity + extraVelocity;
-                
-                
-                
-            }
-        
-            
-    }
-
-    public void SetExternalVelocity(Vector2 velocity)
-    {
-        extraVelocity = velocity;
+    {        
+        if(controlsEnable)
+        {                
+            Vector2 inputVelocity = new Vector2(dirX * moveSpeed * Time.deltaTime, rb.velocity.y);
+            rb.velocity = inputVelocity + extraVelocity;  
+        }            
     }
 
     public void EnableControls()

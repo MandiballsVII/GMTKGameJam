@@ -6,7 +6,7 @@ public class PlayerAnimations : MonoBehaviour
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
     
-    private enum MovementState { idle, running, jumping, falling, gliding, death, glidingHard };
+    private enum MovementState { idle, running, jumping, falling, death, glidingHard };
     private PlayerMovement playerMovement;
     [HideInInspector] public bool inDialog;
     [HideInInspector] public bool playerLookingLeft;
@@ -82,28 +82,9 @@ public class PlayerAnimations : MonoBehaviour
         {
             //hideHud();
             idleNumber = 0;
-            animator.SetInteger("IdleNumber", idleNumber);
-            if (PlayerJumpGlide.isGlidingNormally == false && PlayerJumpGlide.isGlidingHard == false)
-            {
-                state = MovementState.falling;
-            }
-            else if (PlayerJumpGlide.isGlidingNormally)
-            {
-                state = MovementState.gliding;
-            }
+            animator.SetInteger("IdleNumber", idleNumber);            
+            state = MovementState.falling; 
 
-        }
-        if (PlayerJumpGlide.isGlidingNormally)
-        {
-            state = MovementState.gliding;
-            idleNumber = 0;
-            animator.SetInteger("IdleNumber", idleNumber);
-        }
-        else if (PlayerJumpGlide.isGlidingHard)
-        {
-            state = MovementState.glidingHard;
-            idleNumber = 0;
-            animator.SetInteger("IdleNumber", idleNumber);
         }
         if(inDialog)
         {
