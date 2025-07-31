@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 496527508}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +275,7 @@ Transform:
   m_GameObject: {fileID: 496527507}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.3306026, y: -2.4769356, z: 0.06843523}
+  m_LocalPosition: {x: -6.67, y: -2.4769356, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -382,9 +382,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.055555556
     width: 1
-    height: 1
+    height: 0.8888889
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000eb703c99
+  m_ApplyToSortingLayers: 00000000eb703c9971076d8d
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1573,9 +1573,10 @@ GameObject:
   - component: {fileID: 1498740621}
   - component: {fileID: 1498740622}
   - component: {fileID: 1498740623}
+  - component: {fileID: 1498740624}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1633,8 +1634,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1922234511
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1245649867, guid: fee572ac680c1314aad5aac71b189c77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1679,7 +1680,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0035429, y: -0.2834108}
+  m_Offset: {x: 0, y: -0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1690,7 +1691,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.28438854, y: 0.43317842}
+  m_Size: {x: 0.3, y: 0.4}
   m_EdgeRadius: 0
 --- !u!50 &1498740619
 Rigidbody2D:
@@ -1779,8 +1780,8 @@ MonoBehaviour:
   terrain:
     serializedVersion: 2
     m_Bits: 64
-  center: 0.32
-  size: 0.25
+  center: 0.3
+  size: 0.24
   distance: 0
   jumpBufferTime: 0.1
   isJumping: 0
@@ -1812,11 +1813,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 1
+  attackOffsetY: 0
   attackBoxSize: {x: 1, y: 1}
   attackCooldown: 0.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &1498740624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498740615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77329ff3d7bc8824da70af833d64d951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sandballPrefab: {fileID: 4876105183117772131, guid: 83896f43945443f4e9c39f93e07a8c79, type: 3}
+  projectileSpeed: 10
+  fireCooldown: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
