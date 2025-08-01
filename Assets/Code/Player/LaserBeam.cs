@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LaserBeam : MonoBehaviour
 {
-    [Header("Laser Settings")]
+    [Header("<size=15><color=#008B8B>Laser Settings</color></size>")]
     public Transform laserOrigin;
     public float laserLength = 10f;
     public float duration = 1f;
