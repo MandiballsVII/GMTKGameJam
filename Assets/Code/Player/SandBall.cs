@@ -15,17 +15,18 @@ public class Sandball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print("Collision detected with: " + collision.gameObject.name);
         if (collision.CompareTag("Enemy"))
         {
             // Aplicar daño al enemigo
             // collision.GetComponent<Enemy>().TakeDamage(damage);
-
+            collision.GetComponent<BasicEnemy>().Die();
             DestroySelf();
         }
         else if (collision.CompareTag("BreakableWall"))
         {
             // Romper la pared
-            // collision.GetComponent<BreakableWall>().Break();
+            collision.GetComponent<BreakableBlocks>().DestroyWall();
 
             DestroySelf();
         }
