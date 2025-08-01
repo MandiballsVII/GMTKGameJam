@@ -20,15 +20,7 @@ public class PlayerLife : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            // Aquí puedes implementar la lógica de daño o muerte del jugador
-            Debug.Log("Jugador ha chocado con un enemigo");
-            Respawn();
-        }
-    }
+    
     
     public void Respawn()
     {
