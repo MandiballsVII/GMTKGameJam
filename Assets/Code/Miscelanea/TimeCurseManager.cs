@@ -15,6 +15,8 @@ public class TimeCurseManager : MonoBehaviour
     public Transform respawnPoint;
     public PlayerLife playerLife;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI loopCounterText;
+    private int loopCounter = 0;
 
     private bool isTimerRunning = false;
     private bool hasLeftSafeZone = false;
@@ -31,6 +33,7 @@ public class TimeCurseManager : MonoBehaviour
     {
         currentTime = totalTime;
         UpdateTimerUI();
+        loopCounterText.text = loopCounter.ToString();
     }
 
     void Update()
@@ -62,6 +65,8 @@ public class TimeCurseManager : MonoBehaviour
 
     public void ResetTimerState()
     {
+        loopCounter++;
+        loopCounterText.text = loopCounter.ToString();
         isTimerRunning = false;
         hasLeftSafeZone = false;
         currentTime = totalTime;
