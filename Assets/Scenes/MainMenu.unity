@@ -815,6 +815,30 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: TheSafeZone
+    clip: {fileID: 8300000, guid: f40095eb6e0a12a44b86d550aae856fb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: ConseguirItem
+    clip: {fileID: 8300000, guid: a4b57449a2ac0174085cda949e674300, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: a80b5d1ec88214141b1ed65975fb1e9a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Slash
+    clip: {fileID: 8300000, guid: c4fe60f664be8354b9ea62548363d818, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   musicAudioSource: {fileID: 0}
 --- !u!4 &801555943
 Transform:
