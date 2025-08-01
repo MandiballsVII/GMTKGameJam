@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7618580277283342804}
   - component: {fileID: 7037109208000162898}
   - component: {fileID: 6948988471146854914}
+  - component: {fileID: 854857354879776718}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -298,3 +299,15 @@ MonoBehaviour:
     m_Bits: 128
   cooldown: 1
   frostParticlesPrefab: {fileID: 2453030887342606750, guid: 69653caecb3ec004d91a5dea10cd022b, type: 3}
+--- !u!114 &854857354879776718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678709629334805589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05f4f9a9174c0524e8c6b4807d605e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

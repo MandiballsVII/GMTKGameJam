@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
-    Vector2 respawnPoint;
+    GameObject respawnPoint;
 
     private void Awake()
     {
-        respawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform.position;
+        
     }
     void Start()
     {
-        
+        respawnPoint = GameObject.FindGameObjectWithTag("RespawnPoint");
     }
 
     void Update()
@@ -33,7 +33,7 @@ public class PlayerLife : MonoBehaviour
     public void Respawn()
     {
         // Mueve al jugador a la posición de respawn
-        transform.position = respawnPoint;
+        transform.position = respawnPoint.transform.position;
         // Aquí puedes implementar lógica adicional como restablecer la salud del jugador, animaciones, etc.
         Debug.Log("Jugador ha sido re-spawneado en " + respawnPoint);
     }

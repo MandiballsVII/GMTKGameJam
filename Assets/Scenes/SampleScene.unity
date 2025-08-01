@@ -1399,28 +1399,11 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 1373452164}
---- !u!1 &1498740615 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6678709629334805589, guid: 01103d073e1f3f64585361914345d31e, type: 3}
-  m_PrefabInstance: {fileID: 5673837659546419761}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1498740616 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7227721074188644023, guid: 01103d073e1f3f64585361914345d31e, type: 3}
   m_PrefabInstance: {fileID: 5673837659546419761}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1498740626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498740615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05f4f9a9174c0524e8c6b4807d605e00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1861085951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1537,10 +1520,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6678709629334805589, guid: 01103d073e1f3f64585361914345d31e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1498740626}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01103d073e1f3f64585361914345d31e, type: 3}
 --- !u!1001 &6727731684098100183
 PrefabInstance:
@@ -1550,10 +1530,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2532768445281505071, guid: 3b22731566b8feb4ea3c65706db4f2f7, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5196832260891592259, guid: 3b22731566b8feb4ea3c65706db4f2f7, type: 3}
       propertyPath: m_Name
       value: Enemy
