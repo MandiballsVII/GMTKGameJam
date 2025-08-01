@@ -33,7 +33,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
         {
             // Aquí puedes implementar la lógica de daño o muerte del jugador
             Debug.Log("Jugador ha chocado con un enemigo");
-            collision.gameObject.GetComponent<PlayerLife>().Respawn();
+            collision.gameObject.GetComponent<PlayerLife>().RespawnFromDeath();
         }
     }
 }

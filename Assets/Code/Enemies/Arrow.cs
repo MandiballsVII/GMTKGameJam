@@ -33,7 +33,7 @@ public class Arrow : MonoBehaviour, IFreezable
         if (collision.collider.CompareTag("Player"))
         {
             Debug.Log("Player hit by arrow");
-            collision.collider.GetComponent<PlayerLife>()?.Respawn();
+            collision.collider.GetComponent<PlayerLife>()?.RespawnFromDeath();
             Destroy(gameObject);
         }
         else if (collision.collider.CompareTag("Projectile"))

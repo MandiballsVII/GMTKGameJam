@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
     GameObject respawnPoint;
+    public TimeCurseManager timeManager;
+    private bool isDead = false;
 
     private void Awake()
     {
@@ -20,13 +22,35 @@ public class PlayerLife : MonoBehaviour
         
     }
 
-    
-    
-    public void Respawn()
+    public void RespawnFromDeath()
     {
-        // Mueve al jugador a la posición de respawn
+        if (isDead) return;
+        isDead = true;
+
         transform.position = respawnPoint.transform.position;
-        // Aquí puedes implementar lógica adicional como restablecer la salud del jugador, animaciones, etc.
-        Debug.Log("Jugador ha sido re-spawneado en " + respawnPoint);
+
+        Debug.Log("Jugador ha sido re-spawneado por muerte en " + respawnPoint);
+
+        if (timeManager != null)
+            timeManager.ResetTimerState();
+            timeManager.ResetHasLeftZone();
+
+        StartCoroutine(ReviveDelay());
+    }
+    public void RespawnFromTime()
+    {
+        if (isDead) return;
+        isDead = true;
+
+        transform.position = respawnPoint.transform.position;
+
+        Debug.Log("Jugador ha sido re-spawneado por tiempo agotado en " + respawnPoint);
+
+        StartCoroutine(ReviveDelay());
+    }
+    private IEnumerator ReviveDelay()
+    {
+        yield return new WaitForSeconds(0.5f); // o el tiempo que uses
+        isDead = false;
     }
 }
