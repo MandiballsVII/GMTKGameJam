@@ -12,6 +12,7 @@ public class PlayerAnimations : MonoBehaviour
     [HideInInspector] public bool inDialog;
     [HideInInspector] public bool playerLookingLeft;
     public bool IsAttacking { get; private set; } = false;
+    public bool IsDiying { get; private set; } = false;
 
 
     void Start()
@@ -30,8 +31,13 @@ public class PlayerAnimations : MonoBehaviour
 
     private void UpdateAnimationState()
     {
+        if (IsDiying)
+        {
+            // No cambiar de estado mientras el jugador está muriendo
+            animator.SetInteger("State", (int)MovementState.death);
+            return;
+        }
         MovementState state;
-
         if (playerMovement.dirX > 0f)
         {
             state = MovementState.running;
@@ -67,6 +73,7 @@ public class PlayerAnimations : MonoBehaviour
         }
         
         animator.SetInteger("State", (int)state);
+        print($"Current Animation State: {state}");
     }
     public void TriggerMeleeAttackAnimation()
     {
@@ -74,11 +81,23 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetInteger("State", (int)MovementState.meleeAttacking);
         StartCoroutine(ResetAfterAttack());
     }
+    public void TriggerDeathAnimation()
+    {
+        IsDiying = true;
+        animator.SetInteger("State", (int)MovementState.death);
+        StartCoroutine(ResetAfterDeath());
+    }
 
     private IEnumerator ResetAfterAttack()
     {
         yield return new WaitForSeconds(0.5f); // Duración real del ataque
         IsAttacking = false;
+        UpdateAnimationState();
+    }
+    private IEnumerator ResetAfterDeath()
+    {
+        yield return new WaitForSeconds(3.8f); // Duración real de la muerte
+        IsDiying = false;
         UpdateAnimationState();
     }
 

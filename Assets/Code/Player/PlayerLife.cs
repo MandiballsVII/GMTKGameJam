@@ -7,6 +7,7 @@ public class PlayerLife : MonoBehaviour
     GameObject respawnPoint;
     public TimeCurseManager timeManager;
     private bool isDead = false;
+    PlayerAnimations playerAnimations;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class PlayerLife : MonoBehaviour
     void Start()
     {
         respawnPoint = GameObject.FindGameObjectWithTag("RespawnPoint");
+        playerAnimations = GetComponent<PlayerAnimations>();
     }
 
     void Update()
@@ -25,32 +27,52 @@ public class PlayerLife : MonoBehaviour
     public void RespawnFromDeath()
     {
         if (isDead) return;
-        isDead = true;
-
-        transform.position = respawnPoint.transform.position;
-
-        Debug.Log("Jugador ha sido re-spawneado por muerte en " + respawnPoint);
-
-        if (timeManager != null)
-            timeManager.ResetTimerState();
-            timeManager.ResetHasLeftZone();
-
-        StartCoroutine(ReviveDelay());
+        PerformDeathAnimation();
     }
     public void RespawnFromTime()
     {
         if (isDead) return;
-        isDead = true;
-
-        transform.position = respawnPoint.transform.position;
-
-        Debug.Log("Jugador ha sido re-spawneado por tiempo agotado en " + respawnPoint);
-
-        StartCoroutine(ReviveDelay());
+        PerformDeathAnimation();
     }
     private IEnumerator ReviveDelay()
     {
         yield return new WaitForSeconds(0.5f); // o el tiempo que uses
         isDead = false;
+    }
+
+    public void PerformDeathAnimation()
+    {
+        if (isDead) return;
+        isDead = true;
+
+        // 1. Desactivar controles y colisiones
+        GetComponent<PlayerMovement>().DisableControls();
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        // 2. Activar animación de muerte
+        playerAnimations.TriggerDeathAnimation();
+
+        // 3. Lanzar respawn tras terminar la animación
+        StartCoroutine(RespawnAfterDeathAnimation());
+    }
+    private IEnumerator RespawnAfterDeathAnimation()
+    {
+        float deathDuration = 4f; // igual que en PlayerAnimations
+        yield return new WaitForSeconds(deathDuration);
+
+        // Reposicionar jugador
+        transform.position = respawnPoint.transform.position;
+
+        // Restaurar estado
+        GetComponent<PlayerMovement>().EnableControls();
+        isDead = false;
+
+        if (timeManager != null)
+        {
+            timeManager.ResetTimerState();
+            timeManager.ResetHasLeftZone();
+        }
+
+        Debug.Log("Jugador ha muerto y reaparecido en: " + respawnPoint);
     }
 }
