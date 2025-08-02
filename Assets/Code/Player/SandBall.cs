@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Sandball : MonoBehaviour
+public class SandBall : MonoBehaviour
 {
     [Header("<size=15><color=#008B8B>Lifetime</color></size>")]
     [SerializeField] private float lifetime = 3f;
