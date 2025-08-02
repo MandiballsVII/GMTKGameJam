@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
     [SerializeField] private float detectionRange = 10f;
     [SerializeField] private float attackRange = 1f;
     [SerializeField] private float attackCooldown = 1.5f;
+    [SerializeField] private float attackDelay = 1.5f;
     [SerializeField] private LayerMask playerLayer;
 
     private Transform targetPatrolPoint;
@@ -32,6 +34,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
     private Vector3 pointAPosition;
     private Vector3 pointBPosition;
 
+    public static event Action<BasicEnemy> OnEnemyDied;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -125,7 +128,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
 
         if (dist <= attackRange && attackTimer <= 0f)
         {
-            Attack();
+            StartCoroutine(AttackDelay());
             return;
         }
 
@@ -143,7 +146,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
     {
         attackTimer = attackCooldown;
         currentState = State.Waiting;
-        StartCoroutine(AttackDelay());
+        StartCoroutine(AttackCooldown());
 
         if (player != null)
         {
@@ -155,10 +158,15 @@ public class BasicEnemy : MonoBehaviour, IFreezable
         }
     }
 
-    private IEnumerator AttackDelay()
+    private IEnumerator AttackCooldown()
     {
         yield return new WaitForSeconds(attackCooldown);
         currentState = State.Patrolling;
+    }
+    private IEnumerator AttackDelay()
+    {
+        yield return new WaitForSeconds(attackDelay);
+        Attack();
     }
 
     public void Freeze(float duration)
@@ -186,7 +194,10 @@ public class BasicEnemy : MonoBehaviour, IFreezable
     }
     public void Die()
     {
-        Destroy(gameObject);
+        print("Enemy died: " + gameObject.name);
+        // Tu lógica de muerte: animaciones, efectos, etc.
+        OnEnemyDied?.Invoke(this); // lanza el evento
+        gameObject.SetActive(false);
     }
 
     private void OnDrawGizmosSelected()

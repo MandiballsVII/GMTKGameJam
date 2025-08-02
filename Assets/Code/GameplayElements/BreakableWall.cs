@@ -27,7 +27,7 @@ public class BreakableWall : MonoBehaviour
             if (block != null)
             {
                 block.GetComponent<Animator>().SetTrigger("Break");
-                //Destroy(block);
+                block.GetComponent<Collider2D>().enabled = false; // Desactivar colisionador
             }
         }
     }
