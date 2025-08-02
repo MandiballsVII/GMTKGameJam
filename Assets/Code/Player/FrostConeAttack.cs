@@ -1,5 +1,6 @@
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class FrostConeAttack : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class FrostConeAttack : MonoBehaviour
     [Space]
     [Header("<size=15><color=#008B8B>Cooldown</color></size>")]
     public float cooldown = 1f;
-    private float cooldownTimer;
+    private bool isOnCooldown = false;
 
     [Space]
     [Header("<size=15><color=#008B8B>Frost particles</color></size>")]
@@ -22,15 +23,18 @@ public class FrostConeAttack : MonoBehaviour
 
     void Update()
     {
-        cooldownTimer -= Time.deltaTime;
-
         Vector2 attackDirection = GetDiscreteDirection();
 
-        if (Input.GetButtonDown("Fire4") && cooldownTimer <= 0f) // Asignar tecla que quieras
+        if (Input.GetButtonDown("Fire4") && !isOnCooldown)
         {
             PerformFrostCone(lastDirection);
-            cooldownTimer = cooldown;
+            StartCoroutine(CooldownRoutine());
         }
+    }
+
+    void OnEnable()
+    {
+        SetIconAlpha(1f);
     }
 
     Vector2 GetDiscreteDirection()
@@ -43,20 +47,18 @@ public class FrostConeAttack : MonoBehaviour
         if (rawInput.sqrMagnitude < 0.1f)
             return lastDirection != Vector2.zero ? lastDirection : Vector2.right;
 
-        // Normalizamos para ignorar pequeñas variaciones
         rawInput.Normalize();
 
-        // Discretizamos la dirección a 8 ejes
         Vector2[] directions = new Vector2[]
         {
-        Vector2.up,
-        new Vector2(1, 1).normalized,
-        Vector2.right,
-        new Vector2(1, -1).normalized,
-        Vector2.down,
-        new Vector2(-1, -1).normalized,
-        Vector2.left,
-        new Vector2(-1, 1).normalized
+            Vector2.up,
+            new Vector2(1, 1).normalized,
+            Vector2.right,
+            new Vector2(1, -1).normalized,
+            Vector2.down,
+            new Vector2(-1, -1).normalized,
+            Vector2.left,
+            new Vector2(-1, 1).normalized
         };
 
         float bestDot = -1f;
@@ -76,10 +78,8 @@ public class FrostConeAttack : MonoBehaviour
         return bestDir;
     }
 
-
     void PerformFrostCone(Vector2 direction)
     {
-        // Detectar objetos en círculo
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, coneLength, affectedLayers);
 
         foreach (Collider2D hit in hits)
@@ -89,7 +89,6 @@ public class FrostConeAttack : MonoBehaviour
 
             if (angle <= coneAngle / 2f)
             {
-                // Aquí congelamos el objeto si tiene componente Freezable
                 if (hit.TryGetComponent<IFreezable>(out var freezable))
                 {
                     freezable.Freeze(freezeDuration);
@@ -97,19 +96,38 @@ public class FrostConeAttack : MonoBehaviour
             }
         }
 
-        // Instanciar partículas
         if (frostParticlesPrefab != null)
         {
             var particles = Instantiate(frostParticlesPrefab, transform.position, Quaternion.identity);
-            particles.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction); // orientamos hacia la dirección
+            particles.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
             Destroy(particles.gameObject, 2f);
+        }
+    }
+
+    private IEnumerator CooldownRoutine()
+    {
+        isOnCooldown = true;
+        SetIconAlpha(0.45f);
+
+        yield return new WaitForSeconds(cooldown);
+
+        SetIconAlpha(1f);
+        isOnCooldown = false;
+    }
+
+    private void SetIconAlpha(float alpha)
+    {
+        if (PlayerHUD.instance != null && PlayerHUD.instance.frostConeIcon != null)
+        {
+            var color = PlayerHUD.instance.frostConeIcon.color;
+            color.a = alpha;
+            PlayerHUD.instance.frostConeIcon.color = color;
         }
     }
 
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-        // Visualizar el cono en editor
         Gizmos.color = Color.cyan;
 
         Vector3 origin = transform.position;
@@ -128,4 +146,3 @@ public class FrostConeAttack : MonoBehaviour
     }
 #endif
 }
-

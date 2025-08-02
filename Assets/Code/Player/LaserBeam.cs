@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class LaserBeam : MonoBehaviour
 {
@@ -12,24 +13,21 @@ public class LaserBeam : MonoBehaviour
     public GameObject impactParticlesPrefab;
 
     private float activeTime = 0f;
-    private float cooldownTimer = 0f;
     private bool isFiring = false;
-
+    private bool isOnCooldown = false;
     private Vector2 lastDirection = Vector2.right;
 
     void Update()
     {
-        cooldownTimer -= Time.deltaTime;
-
         Vector2 direction = GetDiscreteInputDirection();
         if (direction != Vector2.zero)
             lastDirection = direction;
 
-        if (Input.GetButtonDown("Fire5") && cooldownTimer <= 0f)
+        if (Input.GetButtonDown("Fire5") && !isOnCooldown)
         {
             isFiring = true;
             activeTime = duration;
-            cooldownTimer = cooldown;
+            StartCoroutine(CooldownRoutine());
         }
 
         if (isFiring)
@@ -43,6 +41,11 @@ public class LaserBeam : MonoBehaviour
                 lineRenderer.enabled = false;
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        SetIconAlpha(1f); // Aseguramos que esté visible al activarse
     }
 
     Vector2 GetDiscreteInputDirection()
@@ -64,10 +67,9 @@ public class LaserBeam : MonoBehaviour
         {
             end = hit.point;
 
-            // Instanciar partículas en el impacto
             if (impactParticlesPrefab != null)
             {
-                Quaternion rot = Quaternion.LookRotation(Vector3.forward, direction); // orientación hacia el rayo
+                Quaternion rot = Quaternion.LookRotation(Vector3.forward, direction);
                 var particles = Instantiate(impactParticlesPrefab, end, rot);
                 Destroy(particles.gameObject, 2f);
             }
@@ -79,5 +81,26 @@ public class LaserBeam : MonoBehaviour
 
         lineRenderer.SetPosition(0, start);
         lineRenderer.SetPosition(1, end);
+    }
+
+    IEnumerator CooldownRoutine()
+    {
+        isOnCooldown = true;
+        SetIconAlpha(0.45f); // Desactivar visualmente
+
+        yield return new WaitForSeconds(cooldown);
+
+        SetIconAlpha(1f); // Reactivar visualmente
+        isOnCooldown = false;
+    }
+
+    void SetIconAlpha(float alpha)
+    {
+        if (PlayerHUD.instance != null && PlayerHUD.instance.laserBeamIcon != null)
+        {
+            Color c = PlayerHUD.instance.laserBeamIcon.color;
+            c.a = alpha;
+            PlayerHUD.instance.laserBeamIcon.color = c;
+        }
     }
 }

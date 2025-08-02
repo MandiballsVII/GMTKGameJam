@@ -17,21 +17,26 @@ public class SandballShooter : MonoBehaviour
     [SerializeField] private Transform sandballSpawnPoint;
 
     private float lastFireTime;
-    private Vector2 lastInputDirection = Vector2.right; // valor por defecto
+    private Vector2 lastInputDirection = Vector2.right;
+
+    private bool isOnCooldown = false;
+
+    void OnEnable()
+    {
+        SetIconAlpha(1f);
+    }
 
     void Update()
     {
         Vector2 inputDir = GetInputDirection();
 
         if (inputDir != Vector2.zero)
-        {
             lastInputDirection = inputDir.normalized;
-        }
 
-        if (Input.GetButtonDown("Fire2") && Time.time >= lastFireTime + fireCooldown)
+        if (Input.GetButtonDown("Fire2") && !isOnCooldown)
         {
             LaunchSandball(lastInputDirection);
-            lastFireTime = Time.time;
+            StartCoroutine(CooldownRoutine());
         }
     }
 
@@ -39,7 +44,6 @@ public class SandballShooter : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-
         return new Vector2(x, y);
     }
 
@@ -49,6 +53,25 @@ public class SandballShooter : MonoBehaviour
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.velocity = direction * projectileSpeed;
     }
+
+    private IEnumerator CooldownRoutine()
+    {
+        isOnCooldown = true;
+        SetIconAlpha(0.45f);
+
+        yield return new WaitForSeconds(fireCooldown);
+
+        SetIconAlpha(1f);
+        isOnCooldown = false;
+    }
+
+    private void SetIconAlpha(float alpha)
+    {
+        if (PlayerHUD.instance != null && PlayerHUD.instance.sandBallIcon != null)
+        {
+            var color = PlayerHUD.instance.sandBallIcon.color;
+            color.a = alpha;
+            PlayerHUD.instance.sandBallIcon.color = color;
+        }
+    }
 }
-
-

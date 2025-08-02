@@ -33,7 +33,7 @@ public class TimeCurseManager : MonoBehaviour
     {
         currentTime = totalTime;
         UpdateTimerUI();
-        loopCounterText.text = loopCounter.ToString();
+        loopCounterText.text = "Loops: " + loopCounter.ToString();
     }
 
     void Update()
@@ -66,7 +66,7 @@ public class TimeCurseManager : MonoBehaviour
     public void ResetTimerState()
     {
         loopCounter++;
-        loopCounterText.text = loopCounter.ToString();
+        loopCounterText.text = "Loops: " +  loopCounter.ToString();
         isTimerRunning = false;
         hasLeftSafeZone = false;
         currentTime = totalTime;

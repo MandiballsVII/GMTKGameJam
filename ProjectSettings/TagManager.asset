@@ -8,6 +8,10 @@ TagManager:
   - BreakableWall
   - RespawnPoint
   - Projectile
+  - DashImage
+  - MeleeAttackImage
+  - SandBallImage
+  - FrostConeImage
   layers:
   - Default
   - TransparentFX

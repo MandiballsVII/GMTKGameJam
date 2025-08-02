@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDash : MonoBehaviour
 {
@@ -14,13 +15,21 @@ public class PlayerDash : MonoBehaviour
     private bool isDashing = false;
     private bool canDash = true;
     private float dashTimer;
+    private Image dashIcon;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
     }
-
+    void OnEnable()
+    {
+        if (PlayerHUD.instance != null && PlayerHUD.instance.dashIcon != null)
+        {
+            dashIcon = PlayerHUD.instance.dashIcon;
+            SetIconAlpha(1f); // Hacer visible al activarse
+        }
+    }
     private void Update()
     {
         if (Input.GetButtonDown("Fire3") && canDash && !isDashing)
@@ -51,8 +60,9 @@ public class PlayerDash : MonoBehaviour
 
         movement.DisableControls();
 
-        // Cancelar velocidad anterior
         rb.velocity = Vector2.zero;
+
+        SetIconAlpha(0.45f);
 
         while (dashTimer < dashDuration)
         {
@@ -61,11 +71,22 @@ public class PlayerDash : MonoBehaviour
             yield return null;
         }
 
-        rb.velocity = new Vector2(0, rb.velocity.y); // Mantén vertical si saltando
+        rb.velocity = new Vector2(0, rb.velocity.y);
         movement.EnableControls();
         isDashing = false;
 
         yield return new WaitForSeconds(dashCooldown);
+
         canDash = true;
+
+        SetIconAlpha(1f);
+    }
+    private void SetIconAlpha(float alpha)
+    {
+        if (dashIcon == null) return;
+
+        var color = dashIcon.color;
+        color.a = alpha;
+        dashIcon.color = color;
     }
 }
