@@ -12,6 +12,9 @@ public class SandballShooter : MonoBehaviour
     [Space]
     [Header("<size=15><color=#008B8B>Cooldown</color></size>")]
     [SerializeField] private float fireCooldown = 0.5f;
+    [Space]
+    [Header("<size=15><color=#008B8B>SandBall spawn point</color></size>")]
+    [SerializeField] private Transform sandballSpawnPoint;
 
     private float lastFireTime;
     private Vector2 lastInputDirection = Vector2.right; // valor por defecto
@@ -42,7 +45,7 @@ public class SandballShooter : MonoBehaviour
 
     private void LaunchSandball(Vector2 direction)
     {
-        GameObject projectile = Instantiate(sandballPrefab, transform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(sandballPrefab, sandballSpawnPoint.position, Quaternion.identity);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.velocity = direction * projectileSpeed;
     }
