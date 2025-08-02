@@ -20,7 +20,9 @@ public class MainMenu : MonoBehaviour
     public void LoadScene(int sceneNumber)
     {
         SceneManager.LoadScene(sceneNumber);
+        AudioManager.instance.StopMusic();
     }
+
 
     public void ExitGame()
     {

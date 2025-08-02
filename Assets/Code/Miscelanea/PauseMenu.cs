@@ -52,6 +52,6 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(2);
-        AudioManager.instance.PlayMainMenuMusic();
+        //AudioManager.instance.PlayMainMenuMusic();
     }
 }

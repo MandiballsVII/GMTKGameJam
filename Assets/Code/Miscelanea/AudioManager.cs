@@ -7,11 +7,32 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    public Sounds[] sounds;
+    [Header("-----AudioSource-----")]
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource SFXSource;
 
-    public AudioSource musicAudioSource;
+    [Header("-----Music Clips-----")]
+    public AudioClip mainMenu;
+    public AudioClip theSafeZone;
+    public AudioClip level;
 
-    // Start is called before the first frame update
+    [Header("-----Sound Clips-----")]
+    public AudioClip salto;
+    public AudioClip muerte;
+    public AudioClip cogerItem;
+    public AudioClip dash;
+    public AudioClip ataque;
+    public AudioClip sandBall;
+    public AudioClip polymorf;
+    public AudioClip enemyAttack;
+    public AudioClip enemyDeath;
+    public AudioClip enemyHit;
+    public AudioClip breakingWalls;
+    public AudioClip capsuleBreak;
+    public AudioClip rewind;
+    public AudioClip openDoor;
+
+
     void Awake()
     {
         if (instance == null)
@@ -23,44 +44,21 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(this);
         }
-
-        foreach (Sounds s in sounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-        }
-        PlayMainMenuMusic();
     }
 
-    public void Play(string name)
+    private void Start()
     {
-        Sounds s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
+        musicSource.clip = mainMenu;
+        musicSource.Play();
     }
 
-    public void PlayMainMenuMusic()
+    private void PlaySFX(AudioClip clip)
     {
-        if(musicAudioSource != null)
-        {
-            musicAudioSource.Stop();
-        }
-        Sounds s = Array.Find(sounds, sound => sound.name == "MainMenu");
-        musicAudioSource = s.source;
-        musicAudioSource.Play();
-        
+        SFXSource.PlayOneShot(clip);
     }
-    public void PlayLevelMusic()
+
+    public void StopMusic()
     {
-        if (musicAudioSource != null)
-        {
-            musicAudioSource.Stop();
-        }
-        Sounds s = Array.Find(sounds, sound => sound.name == "Nivel");
-        musicAudioSource = s.source;
-        musicAudioSource.Play();
+        musicSource.Stop();
     }
 }
