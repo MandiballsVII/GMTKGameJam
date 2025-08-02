@@ -40,11 +40,18 @@ public class MeleeAttack : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && !isOnCooldown)
         {
             PerformAttack();
-            StartCoroutine(CooldownRoutine());
         }
     }
 
     private void PerformAttack()
+    {  
+        if (playerAnimations != null)
+            playerAnimations.TriggerMeleeAttackAnimation();
+        StartCoroutine(CooldownRoutine());
+        //TODO
+        // Poner una animación o efecto sonoro
+    }
+    public void DetectHit()
     {
         Vector2 attackDirection = new Vector2(movement.lastFacingDirection, 0);
         Vector2 attackOrigin = (Vector2)transform.position + new Vector2(attackDirection.x * attackRange, attackOffsetY);
@@ -54,13 +61,11 @@ public class MeleeAttack : MonoBehaviour
         foreach (var enemy in hitEnemies)
         {
             Debug.Log("Golpeaste a " + enemy.name);
-            // enemy.GetComponent<Enemy>().TakeDamage(damage);
+            if (enemy.TryGetComponent<BasicEnemy>(out var basicEnemy))
+            {
+                basicEnemy.Die();
+            }
         }
-        //TODO
-        // Poner una animación o efecto sonoro
-        // ACTIVAR animación de ataque
-        if (playerAnimations != null)
-            playerAnimations.TriggerMeleeAttackAnimation();
     }
 
     private IEnumerator CooldownRoutine()

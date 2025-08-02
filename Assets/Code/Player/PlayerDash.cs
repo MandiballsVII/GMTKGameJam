@@ -16,6 +16,7 @@ public class PlayerDash : MonoBehaviour
     private bool canDash = true;
     private float dashTimer;
     private Image dashIcon;
+    private float initialGravityScale;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class PlayerDash : MonoBehaviour
         {
             dashIcon = PlayerHUD.instance.dashIcon;
             SetIconAlpha(1f); // Hacer visible al activarse
+            initialGravityScale = rb.gravityScale; // Guardar el valor inicial de la gravedad
         }
     }
     private void Update()
@@ -54,6 +56,7 @@ public class PlayerDash : MonoBehaviour
 
     private IEnumerator PerformDash(Vector2 direction)
     {
+        rb.gravityScale = 0f; // Desactivar gravedad durante el dash
         isDashing = true;
         canDash = false;
         dashTimer = 0f;
@@ -73,10 +76,10 @@ public class PlayerDash : MonoBehaviour
 
         rb.velocity = new Vector2(0, rb.velocity.y);
         movement.EnableControls();
+        rb.gravityScale = initialGravityScale; // Reactivar gravedad después del dash
         isDashing = false;
 
         yield return new WaitForSeconds(dashCooldown);
-
         canDash = true;
 
         SetIconAlpha(1f);
