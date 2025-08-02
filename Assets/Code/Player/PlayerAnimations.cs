@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
@@ -6,12 +7,13 @@ public class PlayerAnimations : MonoBehaviour
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
     
-    private enum MovementState { idle, running, jumping, falling, death, glidingHard };
+    private enum MovementState { idle, running, jumping, falling, death, meleeAttacking };
     private PlayerMovement playerMovement;
     [HideInInspector] public bool inDialog;
     [HideInInspector] public bool playerLookingLeft;
+    public bool IsAttacking { get; private set; } = false;
 
-    
+
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -66,6 +68,18 @@ public class PlayerAnimations : MonoBehaviour
         
         animator.SetInteger("State", (int)state);
     }
+    public void TriggerMeleeAttackAnimation()
+    {
+        IsAttacking = true;
+        animator.SetInteger("State", (int)MovementState.meleeAttacking);
+        StartCoroutine(ResetAfterAttack());
+    }
 
-    
+    private IEnumerator ResetAfterAttack()
+    {
+        yield return new WaitForSeconds(0.5f); // Duración real del ataque
+        IsAttacking = false;
+        UpdateAnimationState();
+    }
+
 }

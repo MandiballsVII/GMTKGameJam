@@ -22,10 +22,12 @@ public class MeleeAttack : MonoBehaviour
 
     private bool isOnCooldown = false;
     private PlayerMovement movement;
+    private PlayerAnimations playerAnimations;
 
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
+        playerAnimations = GetComponent<PlayerAnimations>();
     }
 
     private void OnEnable()
@@ -56,6 +58,9 @@ public class MeleeAttack : MonoBehaviour
         }
         //TODO
         // Poner una animación o efecto sonoro
+        // ACTIVAR animación de ataque
+        if (playerAnimations != null)
+            playerAnimations.TriggerMeleeAttackAnimation();
     }
 
     private IEnumerator CooldownRoutine()

@@ -172,3 +172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: 5
+  floatAmplitude: 0.25
+  floatFrequency: 1

@@ -11,30 +11,44 @@ public class PlayerMovement : MonoBehaviour
     private float timeToCancelExtraVelocity = 0.2f;
     private float timer = 0f;
     [HideInInspector] public int lastFacingDirection = 1; // 1 = derecha, -1 = izquierda
+    private PlayerAnimations playerAnimations;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerJumpGlide = GetComponent<PlayerJumpGlide>();
+        playerAnimations = GetComponent<PlayerAnimations>();
         EnableControls();
     }
 
     private void Update()
-    {       
+    {
         if (controlsEnable)
         {
-            if (Input.GetAxisRaw("Horizontal") <= -1 || Input.GetAxisRaw("Horizontal") >= 1)
+            bool isAttacking = playerAnimations != null && playerAnimations.IsAttacking;
+            bool isGrounded = playerJumpGlide != null && playerJumpGlide.enabled && playerJumpGlide.isGrounded();
+
+            if (isAttacking && isGrounded)
             {
-                dirX = Input.GetAxisRaw("Horizontal");
-                // Actualiza la dirección de cara si hay input
-                lastFacingDirection = dirX > 0 ? 1 : -1;
+                dirX = 0; // se bloquea el movimiento horizontal durante el ataque en el suelo
             }
             else
             {
-                dirX = 0;
+                float horizontalInput = Input.GetAxisRaw("Horizontal");
+
+                if (horizontalInput <= -1 || horizontalInput >= 1)
+                {
+                    dirX = horizontalInput;
+                    lastFacingDirection = dirX > 0 ? 1 : -1;
+                }
+                else
+                {
+                    dirX = 0;
+                }
             }
         }
-        if(dirX > 0)
+
+        if (dirX > 0)
         {
             gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
