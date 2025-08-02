@@ -6,14 +6,23 @@ public class Abilities : MonoBehaviour
 {
     [SerializeField] private abilityName ability;
     private GameObject player;
+
+    // Variables para el efecto de flotación
+    [SerializeField] private float floatAmplitude = 0.25f;
+    [SerializeField] private float floatFrequency = 1f;
+
+    private Vector3 startPos;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        startPos = transform.position;
     }
 
     void Update()
     {
-        
+        float newY = startPos.y + Mathf.Sin(Time.time * floatFrequency) * floatAmplitude;
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +35,7 @@ public class Abilities : MonoBehaviour
                 player.GetComponent<PlayerJumpGlide>().enabled = true;
                 Destroy(gameObject);
             }
-            else if(ability == abilityName.Dash)
+            else if (ability == abilityName.Dash)
             {
                 print("Ability " + ability + " acquired!");
                 player.GetComponent<PlayerDash>().enabled = true;
