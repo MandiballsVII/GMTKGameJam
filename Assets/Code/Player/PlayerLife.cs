@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
@@ -39,7 +40,15 @@ public class PlayerLife : MonoBehaviour
         yield return new WaitForSeconds(0.5f); // o el tiempo que uses
         isDead = false;
     }
+    void ResetSceneObjects()
+    {
+        IRepositionable[] resettables = FindObjectsOfType<MonoBehaviour>().OfType<IRepositionable>().ToArray();
 
+        foreach (var obj in resettables)
+        {
+            obj.ResetToOrigin();
+        }
+    }
     public void PerformDeathAnimation()
     {
         if (isDead) return;
@@ -54,6 +63,7 @@ public class PlayerLife : MonoBehaviour
 
         // 3. Lanzar respawn tras terminar la animación
         StartCoroutine(RespawnAfterDeathAnimation());
+        ResetSceneObjects();
     }
     private IEnumerator RespawnAfterDeathAnimation()
     {

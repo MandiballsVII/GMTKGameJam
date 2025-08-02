@@ -589,6 +589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2299830217926927742}
   - component: {fileID: 4369811207779917924}
+  - component: {fileID: -3628846199503113761}
   m_Layer: 6
   m_Name: BreakableWall
   m_TagString: Untagged
@@ -624,5 +625,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04c43b90dff0dca40874ee26ddc05850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3628846199503113761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414098201467098706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ba4b87f7456534b94f242c94cc5337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
