@@ -41,7 +41,7 @@ public class Abilities : MonoBehaviour
             else if (ability == abilityName.SandBall)
             {
                 print("Ability " + ability + " acquired!");
-                player.GetComponent<SandBall>().enabled = true;
+                player.GetComponent<SandballShooter>().enabled = true;
                 Destroy(gameObject);
             }
             else if (ability == abilityName.FrostCone)
