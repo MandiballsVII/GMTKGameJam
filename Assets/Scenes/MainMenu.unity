@@ -819,9 +819,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b20bd02c96a32e41ab147d65953ca09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
-  musicAudioSource: {fileID: 0}
-  mixer: {fileID: 0}
+  musicSource: {fileID: 1838142037}
+  SFXSource: {fileID: 973359900}
+  mainMenu: {fileID: 8300000, guid: 1d00c607ac4b82f42b07974ac5e27d64, type: 3}
+  theSafeZone: {fileID: 8300000, guid: f40095eb6e0a12a44b86d550aae856fb, type: 3}
+  level: {fileID: 8300000, guid: 25f618ad547f84846a68ad13150d8363, type: 3}
+  salto: {fileID: 0}
+  muerte: {fileID: 0}
+  cogerItem: {fileID: 8300000, guid: a4b57449a2ac0174085cda949e674300, type: 3}
+  dash: {fileID: 8300000, guid: a80b5d1ec88214141b1ed65975fb1e9a, type: 3}
+  ataque: {fileID: 8300000, guid: c4fe60f664be8354b9ea62548363d818, type: 3}
+  sandBall: {fileID: 0}
+  polymorf: {fileID: 0}
+  enemyAttack: {fileID: 0}
+  enemyDeath: {fileID: 0}
+  enemyHit: {fileID: 0}
+  breakingWalls: {fileID: 0}
+  capsuleBreak: {fileID: 0}
+  rewind: {fileID: 0}
+  openDoor: {fileID: 0}
 --- !u!1 &960505778
 GameObject:
   m_ObjectHideFlags: 0

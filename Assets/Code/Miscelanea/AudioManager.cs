@@ -8,8 +8,8 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [Header("-----AudioSource-----")]
-    [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource SFXSource;
+    [SerializeField] public AudioSource musicSource;
+    [SerializeField] public AudioSource SFXSource;
 
     [Header("-----Music Clips-----")]
     public AudioClip mainMenu;
@@ -55,6 +55,20 @@ public class AudioManager : MonoBehaviour
     private void PlaySFX(AudioClip clip)
     {
         SFXSource.PlayOneShot(clip);
+    }
+
+    public void PlayTheSafeZone()
+    {
+        musicSource.Stop();
+        musicSource.clip = theSafeZone;
+        musicSource.Play();
+    }
+
+    public void PlayLevelMusic()
+    {
+        musicSource.Stop();
+        musicSource.clip = level;
+        musicSource.Play();
     }
 
     public void StopMusic()

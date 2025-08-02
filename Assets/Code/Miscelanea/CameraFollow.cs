@@ -19,6 +19,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (target != null)
             lastTargetX = target.position.x;
+        AudioManager.instance.PlayTheSafeZone();
     }
 
     private void LateUpdate()
