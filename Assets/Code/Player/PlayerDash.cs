@@ -17,12 +17,18 @@ public class PlayerDash : MonoBehaviour
     private float dashTimer;
     private Image dashIcon;
     private float initialGravityScale;
+    private PlayerAnimations playerAnimations;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
     }
+    private void Start()
+    {
+        playerAnimations = GetComponent<PlayerAnimations>();       
+    }
+
     void OnEnable()
     {
         if (PlayerHUD.instance != null && PlayerHUD.instance.dashIcon != null)
@@ -56,6 +62,8 @@ public class PlayerDash : MonoBehaviour
 
     private IEnumerator PerformDash(Vector2 direction)
     {
+        if (playerAnimations != null)
+            playerAnimations.TriggerDashAnimation();
         rb.gravityScale = 0f; // Desactivar gravedad durante el dash
         isDashing = true;
         canDash = false;

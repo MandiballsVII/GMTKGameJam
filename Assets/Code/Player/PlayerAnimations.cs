@@ -7,12 +7,13 @@ public class PlayerAnimations : MonoBehaviour
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
     
-    private enum MovementState { idle, running, jumping, falling, death, meleeAttacking };
+    private enum MovementState { idle, running, jumping, falling, death, meleeAttacking, dash };
     private PlayerMovement playerMovement;
     [HideInInspector] public bool inDialog;
     [HideInInspector] public bool playerLookingLeft;
     public bool IsAttacking { get; private set; } = false;
     public bool IsDiying { get; private set; } = false;
+    public bool IsDashing { get; private set; } = false;
 
 
     void Start()
@@ -31,13 +32,19 @@ public class PlayerAnimations : MonoBehaviour
 
     private void UpdateAnimationState()
     {
+        MovementState state;
         if (IsDiying)
         {
             // No cambiar de estado mientras el jugador está muriendo
             animator.SetInteger("State", (int)MovementState.death);
             return;
         }
-        MovementState state;
+        else if(IsDashing)
+        {
+            state = MovementState.dash;
+            animator.SetInteger("State", (int)MovementState.dash);
+            return;
+        }
         if (playerMovement.dirX > 0f)
         {
             state = MovementState.running;
@@ -73,7 +80,7 @@ public class PlayerAnimations : MonoBehaviour
         }
         
         animator.SetInteger("State", (int)state);
-        print($"Current Animation State: {state}");
+        //print($"Current Animation State: {state}");
     }
     public void TriggerMeleeAttackAnimation()
     {
@@ -83,9 +90,17 @@ public class PlayerAnimations : MonoBehaviour
     }
     public void TriggerDeathAnimation()
     {
+        print("Triggering Death Animation");
         IsDiying = true;
         animator.SetInteger("State", (int)MovementState.death);
         StartCoroutine(ResetAfterDeath());
+    }
+    public void TriggerDashAnimation()
+    {
+        //print("Triggering Dash Animation");
+        IsDashing = true;
+        animator.SetInteger("State", (int)MovementState.dash);
+        StartCoroutine(ResetAfterDash());
     }
 
     private IEnumerator ResetAfterAttack()
@@ -96,8 +111,14 @@ public class PlayerAnimations : MonoBehaviour
     }
     private IEnumerator ResetAfterDeath()
     {
-        yield return new WaitForSeconds(3.8f); // Duración real de la muerte
+        yield return new WaitForSeconds(4f); // Duración real de la muerte
         IsDiying = false;
+        UpdateAnimationState();
+    }
+    private IEnumerator ResetAfterDash()
+    {
+        yield return new WaitForSeconds(0.4f); // Duración del dash
+        IsDashing = false;
         UpdateAnimationState();
     }
 
