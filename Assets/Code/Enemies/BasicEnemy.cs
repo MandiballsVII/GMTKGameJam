@@ -64,7 +64,6 @@ public class BasicEnemy : MonoBehaviour, IFreezable
     }
     private void Update()
     {
-        print($"Enemy State: {currentState}");
         if (isFrozen)
         {
             freezeTimer -= Time.deltaTime;
