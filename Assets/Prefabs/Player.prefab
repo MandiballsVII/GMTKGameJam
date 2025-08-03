@@ -175,7 +175,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af16988291accfd4c88f0e9986bf20a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 150
+  moveSpeed: 550
   dirX: 0
   controlsEnable: 0
   lastFacingDirection: 1
@@ -264,31 +264,31 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.025817025
-      value: 0.20533562
-      inSlope: 13.672764
-      outSlope: 13.672764
+      time: 0
+      value: 0
+      inSlope: 73.34734
+      outSlope: 73.34734
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.099999994
+      outWeight: 0.17682016
     - serializedVersion: 3
-      time: 0.5088957
-      value: 30.056175
-      inSlope: -23.47394
-      outSlope: -23.47394
+      time: 0.34923303
+      value: 15.578381
+      inSlope: 21.164919
+      outSlope: 21.164919
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.16647656
+      outWeight: 0.10514838
     - serializedVersion: 3
-      time: 1.020579
-      value: 0.0042851567
-      inSlope: 1.3657361
-      outSlope: 1.3657361
+      time: 1.0027466
+      value: 20.163857
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.26693976
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -318,9 +318,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c30ee265e66a644b3a4bf98af8b5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashForce: 20
+  dashForce: 70
   dashDuration: 0.2
-  dashCooldown: 1
+  dashCooldown: 0.55
 --- !u!114 &7618580277283342804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,10 +333,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63388373ac7de2849ac03c5ddd0d45e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1.5
+  attackRange: 2
   attackOffsetY: 0.5
-  attackBoxSize: {x: 1.7, y: 2}
-  attackCooldown: 0.5
+  attackBoxSize: {x: 1.8, y: 2}
+  attackCooldown: 0.4
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sandballPrefab: {fileID: 4876105183117772131, guid: 83896f43945443f4e9c39f93e07a8c79, type: 3}
-  projectileSpeed: 10
+  projectileSpeed: 25
   fireCooldown: 0.5
   sandballSpawnPoint: {fileID: 3056307479329939420}
 --- !u!114 &6948988471146854914
@@ -374,7 +374,7 @@ MonoBehaviour:
   affectedLayers:
     serializedVersion: 2
     m_Bits: 128
-  cooldown: 1
+  cooldown: 0.8
   frostParticlesPrefab: {fileID: 2453030887342606750, guid: 69653caecb3ec004d91a5dea10cd022b, type: 3}
   frostConeVisualPrefab: {fileID: 2986610804303927320, guid: d1effc0a9ffdb384299532f370ca6a10, type: 3}
   spawnPoint: {fileID: 6613481808195069154}
@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeManager: {fileID: 0}
+  isDead: 0
 --- !u!95 &2309597840992838451
 Animator:
   serializedVersion: 5
