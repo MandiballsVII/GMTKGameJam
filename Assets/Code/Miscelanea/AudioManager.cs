@@ -22,14 +22,13 @@ public class AudioManager : MonoBehaviour
     public AudioClip cogerItem;
     public AudioClip dash;
     public AudioClip ataque;
-    public AudioClip sandBall;
+    public AudioClip sandBallThrow;
+    public AudioClip sandBallExplotion;
     public AudioClip polymorf;
     public AudioClip enemyAttack;
     public AudioClip enemyDeath;
-    public AudioClip enemyHit;
     public AudioClip breakingWalls;
     public AudioClip capsuleBreak;
-    public AudioClip rewind;
     public AudioClip openDoor;
 
 
