@@ -25,12 +25,9 @@ public class Parallax : MonoBehaviour
         startZ = transform.position.z;
     }
     public void Update()
-    {
-        //if (cam.GetComponent<PlayerCam>().enabled)
-        //{
-        //    Vector2 newPos = startPosition + cameraTravel * parallaxFactor;
-        //    transform.position = new Vector3(newPos.x, newPos.y, startZ);
-        //}
-        
+    {       
+        Vector2 newPos = startPosition + cameraTravel * parallaxFactor;
+        transform.position = new Vector3(newPos.x, newPos.y, startZ);
+
     }
 }
