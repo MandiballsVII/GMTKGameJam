@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 978094807589249797}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.432, y: -0.059, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1990832127, guid: fee572ac680c1314aad5aac71b189c77, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4985643ab0b1b404d9af9c01d9408634, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,18 +148,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.4, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!251 &2438959389449413571
 PlatformEffector2D:
@@ -195,7 +195,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 7497752754647317344, guid: f7ec0df7a8c10954d8ebd00d3a5243f5, type: 3}
   shootPoint: {fileID: 40103412893296084}
   shootDirection: {x: -1, y: 0}
-  shootForce: 5
+  shootForce: 13
   fireRate: 2
 --- !u!1 &5735975889405487088
 GameObject:
@@ -222,7 +222,7 @@ Transform:
   m_GameObject: {fileID: 5735975889405487088}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.642, y: -0.206, z: 0}
+  m_LocalPosition: {x: 1.432, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
