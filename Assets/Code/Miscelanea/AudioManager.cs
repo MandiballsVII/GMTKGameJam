@@ -74,4 +74,10 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.Stop();
     }
+    public void PlayMainMenuMusic()
+    {
+        musicSource.Stop();
+        musicSource.clip = mainMenu;
+        musicSource.Play();
+    }
 }
