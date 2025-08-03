@@ -212,13 +212,19 @@ public class BasicEnemy : MonoBehaviour, IFreezable
 
         isFrozen = true;
         freezeTimer = duration;
-        rb.velocity = Vector2.zero;
-        sr.color = Color.blue;
+
+        rb.velocity = Vector2.zero;         // detener movimiento
+        rb.isKinematic = true;              // que no lo afecte la física
+        animator.speed = 0f;                // congelar animaciones
+        sr.color = Color.blue;              // feedback visual
     }
 
     private void Unfreeze()
     {
         isFrozen = false;
+
+        rb.isKinematic = false;             // volver a usar física
+        animator.speed = 1f;                // reanudar animaciones
         sr.color = Color.white;
     }
 

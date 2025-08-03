@@ -19,6 +19,14 @@ public class FrostConeAttack : MonoBehaviour
     [Header("<size=15><color=#008B8B>Frost particles</color></size>")]
     public ParticleSystem frostParticlesPrefab;
 
+    [Space]
+    [Header("<size=15><color=#008B8B>Visual cone prefab</color></size>")]
+    public GameObject frostConeVisualPrefab;
+
+    [Space]
+    [Header("<size=15><color=#008B8B>Spawn point</color></size>")]
+    public Transform spawnPoint;
+
     private Vector2 lastDirection = Vector2.right;
 
     void Update()
@@ -96,6 +104,17 @@ public class FrostConeAttack : MonoBehaviour
                     freezable.Freeze(freezeDuration);
                 }
             }
+        }
+
+        if (frostConeVisualPrefab != null && spawnPoint != null)
+        {
+            GameObject visual = Instantiate(frostConeVisualPrefab, spawnPoint.position, Quaternion.identity);
+
+            // Orientar visualmente hacia la dirección (ejes 2D)
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            visual.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+            Destroy(visual, 1.5f); // O lo que dure tu animación
         }
 
         if (frostParticlesPrefab != null)
