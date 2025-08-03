@@ -60,7 +60,7 @@ public class TimeCurseManager : MonoBehaviour
     {
         // Solo ejecutado desde el TimeCurseManager cuando el tiempo llega a 0
         playerLife.RespawnFromTime();
-        ResetTimerState();
+        //ResetTimerState();
     }
 
     public void ResetTimerState()
@@ -75,9 +75,16 @@ public class TimeCurseManager : MonoBehaviour
 
     private void UpdateTimerUI()
     {
-        int minutes = Mathf.FloorToInt(currentTime / 60);
-        int seconds = Mathf.FloorToInt(currentTime % 60);
-        timerText.text = $"{minutes:00}:{seconds:00}";
+        if (currentTime > 0f)
+        {
+            int minutes = Mathf.FloorToInt(currentTime / 60);
+            int seconds = Mathf.FloorToInt(currentTime % 60);
+            timerText.text = $"{minutes:00}:{seconds:00}";
+        }
+        else
+        {
+            timerText.text = "00:00";
+        }
     }
     public void ResetHasLeftZone()
     {

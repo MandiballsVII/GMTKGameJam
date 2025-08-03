@@ -49,9 +49,15 @@ public class SandballShooter : MonoBehaviour
 
     private void LaunchSandball(Vector2 direction)
     {
+        if (direction == Vector2.zero) direction = Vector2.right; // Prevención
+
         GameObject projectile = Instantiate(sandballPrefab, sandballSpawnPoint.position, Quaternion.identity);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        rb.velocity = direction * projectileSpeed;
+        rb.velocity = direction.normalized * projectileSpeed;
+
+        // ROTACIÓN en base a la dirección
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        projectile.transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     private IEnumerator CooldownRoutine()

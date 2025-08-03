@@ -9,6 +9,7 @@ public class PlayerLife : MonoBehaviour
     public TimeCurseManager timeManager;
     private bool isDead = false;
     PlayerAnimations playerAnimations;
+    Rigidbody2D rb;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class PlayerLife : MonoBehaviour
     {
         respawnPoint = GameObject.FindGameObjectWithTag("RespawnPoint");
         playerAnimations = GetComponent<PlayerAnimations>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -42,13 +44,14 @@ public class PlayerLife : MonoBehaviour
     }
     void ResetSceneObjects()
     {
-        IRepositionable[] resettables = FindObjectsOfType<MonoBehaviour>().OfType<IRepositionable>().ToArray();
+        IRepositionable[] resettables = FindObjectsOfType<MonoBehaviour>(true).OfType<IRepositionable>().ToArray();
 
         foreach (var obj in resettables)
         {
             obj.ResetToOrigin();
         }
     }
+
     public void PerformDeathAnimation()
     {
         if (isDead) return;
@@ -63,10 +66,10 @@ public class PlayerLife : MonoBehaviour
 
         // 3. Lanzar respawn tras terminar la animación
         StartCoroutine(RespawnAfterDeathAnimation());
-        ResetSceneObjects();
     }
     private IEnumerator RespawnAfterDeathAnimation()
     {
+        rb.isKinematic = true; // Evitar que la física afecte al jugador durante la muerte
         float deathDuration = 4f; // igual que en PlayerAnimations
         yield return new WaitForSeconds(deathDuration);
 
@@ -82,7 +85,8 @@ public class PlayerLife : MonoBehaviour
             timeManager.ResetTimerState();
             timeManager.ResetHasLeftZone();
         }
-
+        rb.isKinematic = false; // Reactivar física
         Debug.Log("Jugador ha muerto y reaparecido en: " + respawnPoint);
+        ResetSceneObjects();
     }
 }
