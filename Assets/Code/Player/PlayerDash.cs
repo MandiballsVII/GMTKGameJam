@@ -31,6 +31,8 @@ public class PlayerDash : MonoBehaviour
 
     void OnEnable()
     {
+        if (PauseMenu.isPaused)
+            return;
         if (PlayerHUD.instance != null && PlayerHUD.instance.dashIcon != null)
         {
             dashIcon = PlayerHUD.instance.dashIcon;

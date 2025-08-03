@@ -37,6 +37,8 @@ public class MeleeAttack : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.isPaused)
+            return;
         if (Input.GetButtonDown("Fire1") && !isOnCooldown)
         {
             PerformAttack();

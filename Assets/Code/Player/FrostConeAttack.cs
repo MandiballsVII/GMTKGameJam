@@ -23,6 +23,8 @@ public class FrostConeAttack : MonoBehaviour
 
     void Update()
     {
+        if (PauseMenu.isPaused)
+            return;
         Vector2 attackDirection = GetDiscreteDirection();
 
         if (Input.GetButtonDown("Fire4") && !isOnCooldown)

@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.isPaused)
+            return;
         if (controlsEnable)
         {
             bool isAttacking = playerAnimations != null && playerAnimations.IsAttacking;

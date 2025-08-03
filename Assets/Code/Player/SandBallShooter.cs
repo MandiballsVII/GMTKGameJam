@@ -28,11 +28,13 @@ public class SandballShooter : MonoBehaviour
 
     void Update()
     {
+        if (PauseMenu.isPaused)
+            return;
         Vector2 inputDir = GetInputDirection();
 
         if (inputDir != Vector2.zero)
             lastInputDirection = inputDir.normalized;
-
+        
         if (Input.GetButtonDown("Fire2") && !isOnCooldown)
         {
             LaunchSandball(lastInputDirection);

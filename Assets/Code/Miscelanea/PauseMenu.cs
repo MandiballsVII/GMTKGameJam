@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
         /*
          * Como hago para que funcione con mando //TO DO DAVID
          */
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Pause"))
         {
             if(isPaused)
             {
