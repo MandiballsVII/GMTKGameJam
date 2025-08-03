@@ -55,6 +55,9 @@ TagManager:
   - name: Terrain
     uniqueID: 2570875115
     locked: 0
+  - name: Deco
+    uniqueID: 79736151
+    locked: 0
   - name: Player
     uniqueID: 2372732785
     locked: 0
