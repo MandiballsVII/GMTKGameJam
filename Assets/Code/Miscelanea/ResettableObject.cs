@@ -15,6 +15,7 @@ public class ResettableObject : MonoBehaviour, IRepositionable
 
     public void ResetToOrigin()
     {
+        gameObject.SetActive(false); // Desactivar el objeto antes de reposicionar
         transform.position = originalPosition;
         transform.rotation = originalRotation;
         gameObject.SetActive(true);

@@ -24,7 +24,7 @@ public class SandBall : MonoBehaviour
         {
             // Aplicar daño al enemigo
             // collision.GetComponent<Enemy>().TakeDamage(damage);
-            collision.GetComponent<BasicEnemy>().Die();
+            //collision.GetComponent<BasicEnemy>().Die();
             DestroyAnimation();
         }
         else if (collision.CompareTag("BreakableWall"))

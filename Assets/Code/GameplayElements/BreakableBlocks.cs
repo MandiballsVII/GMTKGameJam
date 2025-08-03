@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Collections.AllocatorManager;
 
 public class BreakableBlocks : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Animator animator;
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+    private void OnEnable()
+    {
+        animator.Play("Idle");
+        gameObject.GetComponent<Collider2D>().enabled = true;
     }
 
     public void DestroyWall()
