@@ -59,7 +59,7 @@ public class AudioManager : MonoBehaviour
     public void PlayTheSafeZone()
     {
         musicSource.Stop();
-        musicSource.clip = theSafeZone;
+        musicSource.clip = level;
         musicSource.Play();
     }
 
