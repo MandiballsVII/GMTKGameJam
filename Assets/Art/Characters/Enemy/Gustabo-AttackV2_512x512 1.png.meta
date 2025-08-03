@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3253eea90630587438ce461509cee044
+guid: e526add5394513545bc6346f1d0ef98f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _0
+      name: Gustabo-AttackV2_512x512 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 200
-        height: 200
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 196c0971e305f8d48956bb589474fc4c
-      internalID: -582862118
+      spriteID: 11f2cfdcdde92114f8e0851e4ef8e826
+      internalID: 786002343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _1
+      name: Gustabo-AttackV2_512x512 1_1
       rect:
         serializedVersion: 2
-        x: 200
+        x: 512
         y: 0
-        width: 200
-        height: 200
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b68c436c31ea464f805659db0193bb5
-      internalID: -1187119590
+      spriteID: a858fdc3201476346885b96514152106
+      internalID: 345066639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _2
+      name: Gustabo-AttackV2_512x512 1_2
       rect:
         serializedVersion: 2
-        x: 400
+        x: 1024
         y: 0
-        width: 200
-        height: 200
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 427b86a9b83795242b4fc4e131637daa
-      internalID: 129631998
+      spriteID: d981a3efcc7284b48bc0443921087c2e
+      internalID: 975168999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _3
+      name: Gustabo-AttackV2_512x512 1_3
       rect:
         serializedVersion: 2
-        x: 600
+        x: 1536
         y: 0
-        width: 200
-        height: 200
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 878f31438cb23374b95e487ef33b1e3f
-      internalID: -2052614096
+      spriteID: 73c0e0a3219d7914185da41dc5bb8fc9
+      internalID: 418733288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _4
+      name: Gustabo-AttackV2_512x512 1_4
       rect:
         serializedVersion: 2
-        x: 800
+        x: 2048
         y: 0
-        width: 200
-        height: 200
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06bf9085cb9651443bb94989d55fbd44
-      internalID: 458979918
+      spriteID: e0f23be77f4b7a141819964a8ed36ba2
+      internalID: -439767244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _5
+      name: Gustabo-AttackV2_512x512 1_5
       rect:
         serializedVersion: 2
-        x: 1000
+        x: 2560
         y: 0
-        width: 200
-        height: 200
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9acd67cafca381a4f8362a1d5c06a3fe
-      internalID: -660989764
+      spriteID: 75208da4345a95d488f2d0e4011f6957
+      internalID: -663022832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _6
+      name: Gustabo-AttackV2_512x512 1_6
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 3072
         y: 0
-        width: 200
-        height: 200
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fcecbb0663904e46bedba9157034241
-      internalID: 1327440652
+      spriteID: 4d37c25626a08cf4d8a252edbc80047d
+      internalID: 782643404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _7
+      name: Gustabo-AttackV2_512x512 1_7
       rect:
         serializedVersion: 2
-        x: 1400
+        x: 3584
         y: 0
-        width: 200
-        height: 200
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,20 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29504e2c07bff994eba8abb8d4148e4a
-      internalID: -4469071
+      spriteID: f89736147c123c44d92945c5e16e2306
+      internalID: 145669899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _8
+      name: Gustabo-AttackV2_512x512 1_8
       rect:
         serializedVersion: 2
-        x: 1600
+        x: 4096
         y: 0
-        width: 200
-        height: 200
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ec02b00fef69e24bb20a28c59daa912
-      internalID: -1528997269
+      spriteID: 06ca7b701c554314fae7a0d176c59fe4
+      internalID: -1415800835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _9
+      name: Gustabo-AttackV2_512x512 1_9
       rect:
         serializedVersion: 2
-        x: 1800
+        x: 4608
         y: 0
-        width: 200
-        height: 200
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,20 +339,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a01c69205d109a4d999a4c124f046d5
-      internalID: 420024203
+      spriteID: 173a6e4203ae50b4ab48a9933f1cfef8
+      internalID: -484944380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _10
+      name: Gustabo-AttackV2_512x512 1_10
       rect:
         serializedVersion: 2
-        x: 2000
+        x: 5120
         y: 0
-        width: 200
-        height: 200
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,29 +360,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf2dedf0c7efe2a4f8a0d126278521e2
-      internalID: -420966598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemigo_muerte_200x200 _11
-      rect:
-        serializedVersion: 2
-        x: 2200
-        y: 0
-        width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8cce9d39933256c40a30a5fabfcc2516
-      internalID: 1789698210
+      spriteID: 5a6f372cfe7f8604c8ca8e38b97d8393
+      internalID: -1916432535
       vertices: []
       indices: 
       edges: []
@@ -398,18 +377,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemigo_muerte_200x200 _0: -582862118
-      Enemigo_muerte_200x200 _1: -1187119590
-      Enemigo_muerte_200x200 _10: -420966598
-      Enemigo_muerte_200x200 _11: 1789698210
-      Enemigo_muerte_200x200 _2: 129631998
-      Enemigo_muerte_200x200 _3: -2052614096
-      Enemigo_muerte_200x200 _4: 458979918
-      Enemigo_muerte_200x200 _5: -660989764
-      Enemigo_muerte_200x200 _6: 1327440652
-      Enemigo_muerte_200x200 _7: -4469071
-      Enemigo_muerte_200x200 _8: -1528997269
-      Enemigo_muerte_200x200 _9: 420024203
+      Gustabo-AttackV2_512x512 1_0: 786002343
+      Gustabo-AttackV2_512x512 1_1: 345066639
+      Gustabo-AttackV2_512x512 1_10: -1916432535
+      Gustabo-AttackV2_512x512 1_2: 975168999
+      Gustabo-AttackV2_512x512 1_3: 418733288
+      Gustabo-AttackV2_512x512 1_4: -439767244
+      Gustabo-AttackV2_512x512 1_5: -663022832
+      Gustabo-AttackV2_512x512 1_6: 782643404
+      Gustabo-AttackV2_512x512 1_7: 145669899
+      Gustabo-AttackV2_512x512 1_8: -1415800835
+      Gustabo-AttackV2_512x512 1_9: -484944380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

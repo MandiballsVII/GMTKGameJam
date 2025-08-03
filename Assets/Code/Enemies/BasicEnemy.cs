@@ -26,9 +26,13 @@ public class BasicEnemy : MonoBehaviour, IFreezable
     private bool isFrozen = false;
     private float freezeTimer = 0f;
     private float attackTimer = 0f;
+    private float recoverTime = 4f;
+    private float recoverTimer = 0f;
     private bool isAttacking = false;
 
-    private enum State { Patrolling, Chasing, Waiting }
+    private Animator animator;
+
+    private enum State {Ilde, Patrolling, Chasing, Attacking, Recovering, Diying }
     private State currentState = State.Patrolling;
 
     private Vector3 pointAPosition;
@@ -45,6 +49,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         pointAPosition = pointA.position;
         pointBPosition = pointB.position;
 
@@ -52,8 +57,14 @@ public class BasicEnemy : MonoBehaviour, IFreezable
         pointA.gameObject.SetActive(false);
         pointB.gameObject.SetActive(false);
     }
+
+    private void OnEnable()
+    {
+        currentState = State.Patrolling;
+    }
     private void Update()
     {
+        print($"Enemy State: {currentState}");
         if (isFrozen)
         {
             freezeTimer -= Time.deltaTime;
@@ -67,14 +78,35 @@ public class BasicEnemy : MonoBehaviour, IFreezable
         switch (currentState)
         {
             case State.Patrolling:
+                animator.SetInteger("State", (int)State.Patrolling);
                 Patrol();
                 DetectPlayer();
                 break;
             case State.Chasing:
+                animator.SetInteger("State", (int)State.Chasing);
                 ChasePlayer();
                 break;
-            case State.Waiting:
-                rb.velocity = Vector2.zero;
+            case State.Attacking:
+                animator.SetInteger("State", (int)State.Attacking);
+                if (!isAttacking)
+                {
+                    isAttacking = true;
+                }
+                //if (attackTimer <= 0f)
+                //{
+                //    currentState = State.Patrolling;
+                //    isAttacking = false;
+                //}
+                break;
+            case State.Recovering:
+                recoverTimer += Time.deltaTime;
+                if (recoverTimer >= recoverTime)
+                {
+                    recoverTimer = 0f;
+                    currentState = State.Patrolling;
+                }
+                animator.SetInteger("State", (int)State.Recovering);
+                
                 break;
         }
     }
@@ -128,7 +160,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
 
         if (dist <= attackRange && attackTimer <= 0f)
         {
-            StartCoroutine(AttackDelay());
+            Attack();
             return;
         }
 
@@ -145,29 +177,34 @@ public class BasicEnemy : MonoBehaviour, IFreezable
     private void Attack()
     {
         attackTimer = attackCooldown;
-        currentState = State.Waiting;
-        StartCoroutine(AttackCooldown());
+        currentState = State.Attacking;
+        rb.velocity = Vector2.zero;
+        animator.SetTrigger("Attack");
 
-        if (player != null)
+    }
+    public void DealDamageIfInRange()
+    {
+        if (player == null) return;
+
+        float dist = Vector2.Distance(player.transform.position, transform.position);
+        if (dist <= attackRange)
         {
-            float dist = Vector2.Distance(player.transform.position, transform.position);
-            if (dist <= attackRange)
-            {
-                player.GetComponent<PlayerLife>()?.RespawnFromDeath();
-            }
+            player.GetComponent<PlayerLife>()?.RespawnFromDeath();
         }
     }
+    public void EndAttack()
+    {
+        isAttacking = false;
+        currentState = State.Recovering;
+        rb.velocity = Vector2.zero; // Detener el movimiento al finalizar el ataque
+        
+    }
 
-    private IEnumerator AttackCooldown()
-    {
-        yield return new WaitForSeconds(attackCooldown);
-        currentState = State.Patrolling;
-    }
-    private IEnumerator AttackDelay()
-    {
-        yield return new WaitForSeconds(attackDelay);
-        Attack();
-    }
+    //private IEnumerator AttackCooldown()
+    //{
+    //    yield return new WaitForSeconds(attackCooldown);
+    //    currentState = State.Patrolling;
+    //}
 
     public void Freeze(float duration)
     {
@@ -197,7 +234,14 @@ public class BasicEnemy : MonoBehaviour, IFreezable
         print("Enemy died: " + gameObject.name);
         // Tu lógica de muerte: animaciones, efectos, etc.
         OnEnemyDied?.Invoke(this); // lanza el evento
+        currentState = State.Diying;
+        animator.SetInteger("State", (int)State.Diying);
+    }
+
+    public void SetEnemyInactive()
+    {
         gameObject.SetActive(false);
+
     }
 
     private void OnDrawGizmosSelected()

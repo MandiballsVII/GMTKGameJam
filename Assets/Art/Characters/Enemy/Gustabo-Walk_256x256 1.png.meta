@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1cc1649afa109e04393cb69eb499eff2
+guid: db31fdd4a9b7cc542bfc1ecabef29c20
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemigo_caminar_170x170_0
+      name: Gustabo-Walk_256x256 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5aa07653d5ae5f440a3e2c9dd82fb91f
-      internalID: 1076032433
+      spriteID: d9e3cd99005469846a19beda53921173
+      internalID: 1135586194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_caminar_170x170_1
+      name: Gustabo-Walk_256x256 1_1
       rect:
         serializedVersion: 2
-        x: 170
+        x: 256
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 115d1fdca3fbf0a45b0bf30698a279c0
-      internalID: 1827300927
+      spriteID: af8811a6ae06dc8428f8bd1b5db58bf3
+      internalID: 1758257255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_caminar_170x170_2
+      name: Gustabo-Walk_256x256 1_2
       rect:
         serializedVersion: 2
-        x: 340
+        x: 512
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8b2642df3194db4294de29c64a8f079
-      internalID: 1031578877
+      spriteID: 8dd6d298ea54e594c83d8666e10e9f57
+      internalID: 1161048500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_caminar_170x170_3
+      name: Gustabo-Walk_256x256 1_3
       rect:
         serializedVersion: 2
-        x: 510
+        x: 768
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 020771d185d0ba842850ba2eb230539e
-      internalID: 1819397753
+      spriteID: f8ded61cc5ccb7e4eaf2a055b75ef70b
+      internalID: 2069613794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_caminar_170x170_4
+      name: Gustabo-Walk_256x256 1_4
       rect:
         serializedVersion: 2
-        x: 680
+        x: 1024
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5033733747c0a9b4996d0f229dae2522
-      internalID: 394324177
+      spriteID: d8a79cfa213609b45b191d9d6aa05430
+      internalID: 833538404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_caminar_170x170_5
+      name: Gustabo-Walk_256x256 1_5
       rect:
         serializedVersion: 2
-        x: 850
+        x: 1280
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8765505a2fffe0419e0626f869aa4e1
-      internalID: 1426454684
+      spriteID: a79ba1dfe6bde2e4387bfa9c314ab06c
+      internalID: -1679337232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_caminar_170x170_6
+      name: Gustabo-Walk_256x256 1_6
       rect:
         serializedVersion: 2
-        x: 1020
+        x: 1536
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffa439a975ad0f348bbf794a007131cf
-      internalID: 455146364
+      spriteID: 36faa9e0e961b0c4f9c0a403006c3a5f
+      internalID: 843217298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_caminar_170x170_7
+      name: Gustabo-Walk_256x256 1_7
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 1792
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,8 +297,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc4c5530c4da93d47bbefdd2da6f2ff6
-      internalID: 348803837
+      spriteID: 0df3a15423bf05446aaebea02c51c974
+      internalID: 46597422
       vertices: []
       indices: 
       edges: []
@@ -314,14 +314,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemigo_caminar_170x170_0: 1076032433
-      Enemigo_caminar_170x170_1: 1827300927
-      Enemigo_caminar_170x170_2: 1031578877
-      Enemigo_caminar_170x170_3: 1819397753
-      Enemigo_caminar_170x170_4: 394324177
-      Enemigo_caminar_170x170_5: 1426454684
-      Enemigo_caminar_170x170_6: 455146364
-      Enemigo_caminar_170x170_7: 348803837
+      Gustabo-Walk_256x256 1_0: 1135586194
+      Gustabo-Walk_256x256 1_1: 1758257255
+      Gustabo-Walk_256x256 1_2: 1161048500
+      Gustabo-Walk_256x256 1_3: 2069613794
+      Gustabo-Walk_256x256 1_4: 833538404
+      Gustabo-Walk_256x256 1_5: -1679337232
+      Gustabo-Walk_256x256 1_6: 843217298
+      Gustabo-Walk_256x256 1_7: 46597422
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

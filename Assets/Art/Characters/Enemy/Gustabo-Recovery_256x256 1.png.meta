@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9d4e9f93a6def034685fe572f6c2c7e7
+guid: b798fa8faa7b9c444aefb00a9e775c0d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ataque a enemigo 218x218-sheet_0
+      name: Gustabo-Recovery_256x256 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 218
-        height: 218
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47f71ca1820aed2468f18308f008f348
-      internalID: 1049748253
+      spriteID: f115231d86b5eff4bbf76ddef480565a
+      internalID: 1682654587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ataque a enemigo 218x218-sheet_1
+      name: Gustabo-Recovery_256x256 1_1
       rect:
         serializedVersion: 2
-        x: 218
+        x: 256
         y: 0
-        width: 218
-        height: 218
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b919fadc8d29496448a13ab9c1e34f83
-      internalID: 1648902607
+      spriteID: 5909ec57bee70124188f3c0a1c52a74a
+      internalID: 1722854102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ataque a enemigo 218x218-sheet_2
+      name: Gustabo-Recovery_256x256 1_2
       rect:
         serializedVersion: 2
-        x: 436
+        x: 512
         y: 0
-        width: 218
-        height: 218
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ceb8febc4b5a8fc47b528d0a02b3dc51
-      internalID: -979372493
+      spriteID: 537d8300bad901e43955261b890165a0
+      internalID: 1169625941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ataque a enemigo 218x218-sheet_3
+      name: Gustabo-Recovery_256x256 1_3
       rect:
         serializedVersion: 2
-        x: 654
+        x: 768
         y: 0
-        width: 218
-        height: 218
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d102a6e930acd8488115769953dc927
-      internalID: 138875289
+      spriteID: e2f16b63083fe1d47a3ea79f7dc37a27
+      internalID: -1105994126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ataque a enemigo 218x218-sheet_4
+      name: Gustabo-Recovery_256x256 1_4
       rect:
         serializedVersion: 2
-        x: 872
+        x: 1024
         y: 0
-        width: 218
-        height: 218
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ecf8d01c8e3a7c48b223f1a8cac9c5d
-      internalID: -815003233
+      spriteID: 7e45f6fdae679634da4e46feaa191e27
+      internalID: 2124285274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ataque a enemigo 218x218-sheet_5
+      name: Gustabo-Recovery_256x256 1_5
       rect:
         serializedVersion: 2
-        x: 1090
+        x: 1280
         y: 0
-        width: 218
-        height: 218
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bbf7427d71b26246914e52a3e4c742f
-      internalID: 976045850
+      spriteID: 55808cc678f8eea47a5a0a926ea10be6
+      internalID: 355964099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ataque a enemigo 218x218-sheet_6
+      name: Gustabo-Recovery_256x256 1_6
       rect:
         serializedVersion: 2
-        x: 1308
+        x: 1536
         y: 0
-        width: 218
-        height: 218
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,8 +276,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a328985a8d148a4699db1a15c95fa01
-      internalID: -700879275
+      spriteID: 712e622dc98cdc34394283f2ae9d42ef
+      internalID: 708686098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gustabo-Recovery_256x256 1_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eacbd666a30198e49ba363baa68f38f0
+      internalID: -522085525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gustabo-Recovery_256x256 1_8
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f5c929a30ed9348ad9545bb61090bc
+      internalID: -445142173
       vertices: []
       indices: 
       edges: []
@@ -293,13 +335,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ataque a enemigo 218x218-sheet_0: 1049748253
-      Ataque a enemigo 218x218-sheet_1: 1648902607
-      Ataque a enemigo 218x218-sheet_2: -979372493
-      Ataque a enemigo 218x218-sheet_3: 138875289
-      Ataque a enemigo 218x218-sheet_4: -815003233
-      Ataque a enemigo 218x218-sheet_5: 976045850
-      Ataque a enemigo 218x218-sheet_6: -700879275
+      Gustabo-Recovery_256x256 1_0: 1682654587
+      Gustabo-Recovery_256x256 1_1: 1722854102
+      Gustabo-Recovery_256x256 1_2: 1169625941
+      Gustabo-Recovery_256x256 1_3: -1105994126
+      Gustabo-Recovery_256x256 1_4: 2124285274
+      Gustabo-Recovery_256x256 1_5: 355964099
+      Gustabo-Recovery_256x256 1_6: 708686098
+      Gustabo-Recovery_256x256 1_7: -522085525
+      Gustabo-Recovery_256x256 1_8: -445142173
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

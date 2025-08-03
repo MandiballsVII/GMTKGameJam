@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3fcfc567af5cd7e4ba4a206a4b4a5b68
+guid: a45482c0c1946434f80122cc9e377270
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemigo_Idle_170x170_0
+      name: Gustabo-Idle_256x256 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a477dea81d69a1249a719734607f0e63
-      internalID: -11026368
+      spriteID: ecb62354cad6bd246af36a4ddddbac52
+      internalID: -1973823239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_Idle_170x170_1
+      name: Gustabo-Idle_256x256 1_1
       rect:
         serializedVersion: 2
-        x: 170
+        x: 256
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c913ab8fef215349860da77ce6ddba4
-      internalID: 2044346104
+      spriteID: ea376afb9e891644a9d34ba14dfbebf8
+      internalID: 1053732929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_Idle_170x170_2
+      name: Gustabo-Idle_256x256 1_2
       rect:
         serializedVersion: 2
-        x: 340
+        x: 512
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 136b57999ac0a5c4a8b440754258d4d1
-      internalID: -163929518
+      spriteID: f4d85f966826a674a833edbf8004bd55
+      internalID: -36049081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_Idle_170x170_3
+      name: Gustabo-Idle_256x256 1_3
       rect:
         serializedVersion: 2
-        x: 510
+        x: 768
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5614b3819cd25e0429dfe19f053286ee
-      internalID: 1507211586
+      spriteID: 187f00d5551e8b842abe6fe6cb72c3cc
+      internalID: 1303007406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_Idle_170x170_4
+      name: Gustabo-Idle_256x256 1_4
       rect:
         serializedVersion: 2
-        x: 680
+        x: 1024
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2d0e33aee0999245a56dbca2ef864ed
-      internalID: 1259445959
+      spriteID: b2bb0983f0cbde74bba2b9207823b99e
+      internalID: 1317117400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_Idle_170x170_5
+      name: Gustabo-Idle_256x256 1_5
       rect:
         serializedVersion: 2
-        x: 850
+        x: 1280
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bd9ee4381843a24eb11b4bfb6e88192
-      internalID: 530601284
+      spriteID: b58ece566bb3dcf4caf25714684e66ff
+      internalID: -1365159581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_Idle_170x170_6
+      name: Gustabo-Idle_256x256 1_6
       rect:
         serializedVersion: 2
-        x: 1020
+        x: 1536
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eec1e3f8e82cace46bcd67c5e9c41006
-      internalID: 490439464
+      spriteID: b921d4f0ac4e6f64a9a41d5ac62390a7
+      internalID: 944423139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo_Idle_170x170_7
+      name: Gustabo-Idle_256x256 1_7
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 1792
         y: 0
-        width: 170
-        height: 170
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,8 +297,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b0bba550b5ed4c4bb07a19b117c508f
-      internalID: 215228475
+      spriteID: ef098a355df95814db0b3030061dbd5e
+      internalID: -1460420158
       vertices: []
       indices: 
       edges: []
@@ -314,14 +314,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemigo_Idle_170x170_0: -11026368
-      Enemigo_Idle_170x170_1: 2044346104
-      Enemigo_Idle_170x170_2: -163929518
-      Enemigo_Idle_170x170_3: 1507211586
-      Enemigo_Idle_170x170_4: 1259445959
-      Enemigo_Idle_170x170_5: 530601284
-      Enemigo_Idle_170x170_6: 490439464
-      Enemigo_Idle_170x170_7: 215228475
+      Gustabo-Idle_256x256 1_0: -1973823239
+      Gustabo-Idle_256x256 1_1: 1053732929
+      Gustabo-Idle_256x256 1_2: -36049081
+      Gustabo-Idle_256x256 1_3: 1303007406
+      Gustabo-Idle_256x256 1_4: 1317117400
+      Gustabo-Idle_256x256 1_5: -1365159581
+      Gustabo-Idle_256x256 1_6: 944423139
+      Gustabo-Idle_256x256 1_7: -1460420158
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
