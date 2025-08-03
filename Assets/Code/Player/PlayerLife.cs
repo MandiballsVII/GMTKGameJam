@@ -7,7 +7,7 @@ public class PlayerLife : MonoBehaviour
 {
     GameObject respawnPoint;
     public TimeCurseManager timeManager;
-    private bool isDead = false;
+    [HideInInspector] public bool isDead = false;
     PlayerAnimations playerAnimations;
     Rigidbody2D rb;
 

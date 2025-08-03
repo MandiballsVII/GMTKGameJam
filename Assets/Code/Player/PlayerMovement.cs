@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float timer = 0f;
     [HideInInspector] public int lastFacingDirection = 1; // 1 = derecha, -1 = izquierda
     private PlayerAnimations playerAnimations;
+    PlayerLife playerLife;
 
     private void Start()
     {
@@ -19,11 +20,12 @@ public class PlayerMovement : MonoBehaviour
         playerJumpGlide = GetComponent<PlayerJumpGlide>();
         playerAnimations = GetComponent<PlayerAnimations>();
         EnableControls();
+        playerLife = GetComponent<PlayerLife>();
     }
 
     private void Update()
     {
-        if (PauseMenu.isPaused)
+        if (PauseMenu.isPaused || playerLife.isDead)
             return;
         if (controlsEnable)
         {

@@ -41,6 +41,8 @@ public class PlayerJumpGlide : MonoBehaviour
 
     private float drag = 25;
 
+    PlayerLife playerLife;
+
     IEnumerator JumpCooldown()
     {
         yield return new WaitForSeconds(0.5f);
@@ -50,10 +52,16 @@ public class PlayerJumpGlide : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
+        playerLife = GetComponent<PlayerLife>();
     }
 
     void Update()
     {
+        if (PauseMenu.isPaused || playerLife.isDead)
+        {
+            rb.drag = drag;
+            return;
+        }
         var jumpInput = Input.GetButtonDown("Jump");
         var jumpOutput = Input.GetButtonUp("Jump");
 

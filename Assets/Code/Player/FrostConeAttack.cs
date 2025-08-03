@@ -29,9 +29,15 @@ public class FrostConeAttack : MonoBehaviour
 
     private Vector2 lastDirection = Vector2.right;
 
+    PlayerLife playerLife;
+
+    private void Start()
+    {
+        playerLife = GetComponent<PlayerLife>();
+    }
     void Update()
     {
-        if (PauseMenu.isPaused)
+        if (PauseMenu.isPaused || playerLife.isDead)
             return;
         Vector2 attackDirection = GetDiscreteDirection();
 

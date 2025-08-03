@@ -18,6 +18,7 @@ public class PlayerDash : MonoBehaviour
     private Image dashIcon;
     private float initialGravityScale;
     private PlayerAnimations playerAnimations;
+    private PlayerLife playerLife;
 
     private void Awake()
     {
@@ -26,7 +27,8 @@ public class PlayerDash : MonoBehaviour
     }
     private void Start()
     {
-        playerAnimations = GetComponent<PlayerAnimations>();       
+        playerAnimations = GetComponent<PlayerAnimations>();  
+        playerLife = GetComponent<PlayerLife>();
     }
 
     void OnEnable()
@@ -42,6 +44,8 @@ public class PlayerDash : MonoBehaviour
     }
     private void Update()
     {
+        if (PauseMenu.isPaused || playerLife.isDead)
+            return;
         if (Input.GetButtonDown("Fire3") && canDash && !isDashing)
         {
             float inputX = Input.GetAxisRaw("Horizontal");

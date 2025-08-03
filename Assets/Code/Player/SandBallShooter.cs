@@ -21,14 +21,21 @@ public class SandballShooter : MonoBehaviour
 
     private bool isOnCooldown = false;
 
+    PlayerLife playerLife;
+
     void OnEnable()
     {
         SetIconAlpha(1f);
     }
 
+    private void Start()
+    {
+        playerLife = GetComponent<PlayerLife>();
+    }
+
     void Update()
     {
-        if (PauseMenu.isPaused)
+        if (PauseMenu.isPaused || playerLife.isDead)
             return;
         Vector2 inputDir = GetInputDirection();
 
