@@ -43,6 +43,8 @@ public class PlayerJumpGlide : MonoBehaviour
 
     PlayerLife playerLife;
 
+    private bool jumpSoundPlayed = false;
+
     IEnumerator JumpCooldown()
     {
         yield return new WaitForSeconds(0.5f);
@@ -86,6 +88,11 @@ public class PlayerJumpGlide : MonoBehaviour
                 {
                     isJumping = true;
                     jumpBufferCounter = 0f;
+                    if (!jumpSoundPlayed)
+                    {
+                        jumpSoundPlayed = true;
+                        AudioManager.instance.PlaySFX(AudioManager.instance.salto);
+                    }
                 }
             }
             if (isJumping)
@@ -136,6 +143,7 @@ public class PlayerJumpGlide : MonoBehaviour
                 drag = 20;
                 rb.drag = 0;
                 coyoteTimeCounter = coyoteTime;
+                jumpSoundPlayed = false;
             }
             else
             {
@@ -150,8 +158,9 @@ public class PlayerJumpGlide : MonoBehaviour
     }
 
     private void Jump()
-    {        
-        rb.velocity = new Vector2(rb.velocity.x, jumpForceCurve.Evaluate(Mathf.Clamp01(buttonPressedTime / jumpTime)));   
+    {                
+        rb.velocity = new Vector2(rb.velocity.x, jumpForceCurve.Evaluate(Mathf.Clamp01(buttonPressedTime / jumpTime)));
+        
     }
 
     

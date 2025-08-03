@@ -179,10 +179,10 @@ public class BasicEnemy : MonoBehaviour, IFreezable
         currentState = State.Attacking;
         rb.velocity = Vector2.zero;
         animator.SetTrigger("Attack");
-
     }
     public void DealDamageIfInRange()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.enemyAttack);
         if (player == null) return;
 
         float dist = Vector2.Distance(player.transform.position, transform.position);
@@ -241,6 +241,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
         OnEnemyDied?.Invoke(this); // lanza el evento
         currentState = State.Diying;
         animator.SetInteger("State", (int)State.Diying);
+        AudioManager.instance.PlaySFX(AudioManager.instance.enemyDeath);
     }
 
     public void SetEnemyInactive()

@@ -74,7 +74,7 @@ public class PlayerDash : MonoBehaviour
         isDashing = true;
         canDash = false;
         dashTimer = 0f;
-
+        AudioManager.instance.PlaySFX(AudioManager.instance.dash);
         movement.DisableControls();
 
         rb.velocity = Vector2.zero;

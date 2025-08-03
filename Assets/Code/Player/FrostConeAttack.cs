@@ -115,7 +115,7 @@ public class FrostConeAttack : MonoBehaviour
         if (frostConeVisualPrefab != null && spawnPoint != null)
         {
             GameObject visual = Instantiate(frostConeVisualPrefab, spawnPoint.position, Quaternion.identity);
-
+            AudioManager.instance.PlaySFX(AudioManager.instance.polymorf);
             // Orientar visualmente hacia la dirección (ejes 2D)
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             visual.transform.rotation = Quaternion.Euler(0, 0, angle);

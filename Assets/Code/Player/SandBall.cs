@@ -15,6 +15,7 @@ public class SandBall : MonoBehaviour
         Destroy(gameObject, lifetime);
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        AudioManager.instance.PlaySFX(AudioManager.instance.sandBallThrow);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,6 +48,7 @@ public class SandBall : MonoBehaviour
         rb.velocity = Vector3.zero; // Detener el movimiento
         //rb.isKinematic = true; // Hacer que el Rigidbody no afecte la física
         animator.SetTrigger("Explote");
+        AudioManager.instance.PlaySFX(AudioManager.instance.sandBallExplotion);
     }
     private void DestroySelf()
     {

@@ -65,6 +65,7 @@ public class Abilities : MonoBehaviour
                 player.GetComponent<LaserBeam>().enabled = true;
                 Destroy(gameObject);
             }
+            AudioManager.instance.PlaySFX(AudioManager.instance.cogerItem);
         }
     }
 }

@@ -22,6 +22,7 @@ public class BreakableWall : MonoBehaviour
     }
     public void Break()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.breakingWalls);
         foreach (GameObject block in wallBlocks)
         {
             if (block != null)

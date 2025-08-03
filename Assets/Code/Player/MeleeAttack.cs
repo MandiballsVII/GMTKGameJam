@@ -49,6 +49,7 @@ public class MeleeAttack : MonoBehaviour
     {  
         if (playerAnimations != null)
             playerAnimations.TriggerMeleeAttackAnimation();
+        AudioManager.instance.PlaySFX(AudioManager.instance.ataque);
         StartCoroutine(CooldownRoutine());
         //TODO
         // Poner una animación o efecto sonoro

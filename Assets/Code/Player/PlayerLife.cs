@@ -66,13 +66,13 @@ public class PlayerLife : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
-
         // 1. Desactivar controles y colisiones
         GetComponent<PlayerMovement>().DisableControls();
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         // 2. Activar animación de muerte
         playerAnimations.TriggerDeathAnimation();
+        StartCoroutine(DeathSoundDelay());
 
         // 3. Lanzar respawn tras terminar la animación
         StartCoroutine(RespawnAfterDeathAnimation());
@@ -98,5 +98,11 @@ public class PlayerLife : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Dynamic; // Reactivar física
         Debug.Log("Jugador ha muerto y reaparecido en: " + respawnPoint);
         ResetSceneObjects();
+    }
+
+    private IEnumerator DeathSoundDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        AudioManager.instance.PlaySFX(AudioManager.instance.muerte);
     }
 }

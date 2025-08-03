@@ -59,6 +59,7 @@ public class Door : MonoBehaviour
         // Aquí puedes activar animación, colisionador, efecto, etc.
         //gameObject.SetActive(false); // o anim.SetTrigger("Open");
         animator.SetBool("Open", true);
+        AudioManager.instance.PlaySFX(AudioManager.instance.openDoor);
     }
 
     public void DisableDoor()
