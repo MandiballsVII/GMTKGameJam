@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
-    private void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioClip clip)
     {
         SFXSource.PlayOneShot(clip);
     }
