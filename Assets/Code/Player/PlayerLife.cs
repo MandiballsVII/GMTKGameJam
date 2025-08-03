@@ -31,6 +31,10 @@ public class PlayerLife : MonoBehaviour
         {
             RespawnFromDeath();
         }
+        if (isDead)
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 
     public void RespawnFromDeath()
@@ -75,7 +79,7 @@ public class PlayerLife : MonoBehaviour
     }
     private IEnumerator RespawnAfterDeathAnimation()
     {
-        rb.isKinematic = true; // Evitar que la física afecte al jugador durante la muerte
+        rb.bodyType = RigidbodyType2D.Static; // Desactivar física para evitar colisiones durante la animación
         float deathDuration = 4f; // igual que en PlayerAnimations
         yield return new WaitForSeconds(deathDuration);
 
@@ -91,7 +95,7 @@ public class PlayerLife : MonoBehaviour
             timeManager.ResetTimerState();
             timeManager.ResetHasLeftZone();
         }
-        rb.isKinematic = false; // Reactivar física
+        rb.bodyType = RigidbodyType2D.Dynamic; // Reactivar física
         Debug.Log("Jugador ha muerto y reaparecido en: " + respawnPoint);
         ResetSceneObjects();
     }

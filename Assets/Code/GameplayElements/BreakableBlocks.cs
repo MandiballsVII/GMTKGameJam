@@ -13,7 +13,11 @@ public class BreakableBlocks : MonoBehaviour
 
     private void OnEnable()
     {
-        animator.Play("Idle");
+        if ((animator != null))
+        {
+            animator.Play("Idle");
+            
+        }
         gameObject.GetComponent<Collider2D>().enabled = true;
     }
 

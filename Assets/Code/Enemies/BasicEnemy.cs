@@ -64,7 +64,6 @@ public class BasicEnemy : MonoBehaviour, IFreezable
     }
     private void Update()
     {
-        print($"Enemy State: {currentState}");
         if (isFrozen)
         {
             freezeTimer -= Time.deltaTime;
@@ -230,7 +229,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isFrozen && collision.gameObject.CompareTag("Player"))
+        if (!isFrozen && currentState != State.Diying && collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerLife>()?.RespawnFromDeath();
         }
