@@ -11,10 +11,6 @@ public class BreakableBlocks : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        
-    }
     private void OnEnable()
     {
         animator.Play("Idle");

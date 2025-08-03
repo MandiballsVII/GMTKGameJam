@@ -23,7 +23,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
     private Rigidbody2D rb;
     private SpriteRenderer sr;
 
-    private bool isFrozen = false;
+    [HideInInspector] public bool isFrozen = false;
     private float freezeTimer = 0f;
     private float attackTimer = 0f;
     private float recoverTime = 4f;

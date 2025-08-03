@@ -65,7 +65,10 @@ public class MeleeAttack : MonoBehaviour
             Debug.Log("Golpeaste a " + enemy.name);
             if (enemy.TryGetComponent<BasicEnemy>(out var basicEnemy))
             {
-                basicEnemy.Die();
+                if (!basicEnemy.isFrozen)
+                {
+                    basicEnemy.Die();
+                }
             }
         }
     }
