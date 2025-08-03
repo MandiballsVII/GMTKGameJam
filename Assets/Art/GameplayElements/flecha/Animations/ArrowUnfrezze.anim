@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FrostCone
+  m_Name: ArrowUnfrezze
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,15 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1618474950, guid: 61fd6076d3a793241abe843824e3787c, type: 3}
+      value: {fileID: -317782290, guid: 4d3d642e1ecd3a24b9cd6a3945b95644, type: 3}
     - time: 0.0625
-      value: {fileID: 779119499, guid: 61fd6076d3a793241abe843824e3787c, type: 3}
+      value: {fileID: -1976392612, guid: 4d3d642e1ecd3a24b9cd6a3945b95644, type: 3}
     - time: 0.125
-      value: {fileID: -1508415431, guid: 61fd6076d3a793241abe843824e3787c, type: 3}
+      value: {fileID: 347195440, guid: 4d3d642e1ecd3a24b9cd6a3945b95644, type: 3}
     - time: 0.1875
-      value: {fileID: 1438321338, guid: 61fd6076d3a793241abe843824e3787c, type: 3}
+      value: {fileID: -1922016565, guid: 4d3d642e1ecd3a24b9cd6a3945b95644, type: 3}
     - time: 0.25
-      value: {fileID: 1771171428, guid: 61fd6076d3a793241abe843824e3787c, type: 3}
+      value: {fileID: 607531551, guid: 4d3d642e1ecd3a24b9cd6a3945b95644, type: 3}
     - time: 0.3125
       value: {fileID: 0}
     attribute: m_Sprite
@@ -54,11 +54,11 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1618474950, guid: 61fd6076d3a793241abe843824e3787c, type: 3}
-    - {fileID: 779119499, guid: 61fd6076d3a793241abe843824e3787c, type: 3}
-    - {fileID: -1508415431, guid: 61fd6076d3a793241abe843824e3787c, type: 3}
-    - {fileID: 1438321338, guid: 61fd6076d3a793241abe843824e3787c, type: 3}
-    - {fileID: 1771171428, guid: 61fd6076d3a793241abe843824e3787c, type: 3}
+    - {fileID: -317782290, guid: 4d3d642e1ecd3a24b9cd6a3945b95644, type: 3}
+    - {fileID: -1976392612, guid: 4d3d642e1ecd3a24b9cd6a3945b95644, type: 3}
+    - {fileID: 347195440, guid: 4d3d642e1ecd3a24b9cd6a3945b95644, type: 3}
+    - {fileID: -1922016565, guid: 4d3d642e1ecd3a24b9cd6a3945b95644, type: 3}
+    - {fileID: 607531551, guid: 4d3d642e1ecd3a24b9cd6a3945b95644, type: 3}
     - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -84,4 +84,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.3125
+    functionName: AfterUnfreeze
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

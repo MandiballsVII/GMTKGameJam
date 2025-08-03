@@ -370,7 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coneAngle: 45
   coneLength: 5
-  freezeDuration: 2
+  freezeDuration: 4
   affectedLayers:
     serializedVersion: 2
     m_Bits: 128

@@ -14,6 +14,7 @@ public class Arrow : MonoBehaviour, IFreezable
     private Vector2 storedVelocity;
     private bool isFrozen = false;
     private int originalLayer;
+    private Animator animator;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class Arrow : MonoBehaviour, IFreezable
     private void Start()
     {
         Destroy(gameObject, lifetime);
+        animator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -57,7 +59,8 @@ public class Arrow : MonoBehaviour, IFreezable
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
 
-        GetComponent<SpriteRenderer>().color = Color.blue;
+        animator.SetTrigger("Freeze"); // Activar animación de congelación
+        //GetComponent<SpriteRenderer>().color = Color.blue;
         gameObject.layer = 6; // Terrain (para poder pisarla)
 
         Debug.Log("Arrow frozen for " + duration + " seconds.");
@@ -66,14 +69,15 @@ public class Arrow : MonoBehaviour, IFreezable
 
     private void Unfreeze()
     {
-        isFrozen = false;
-
-        rb.isKinematic = false;
-        rb.velocity = storedVelocity;
-
-        GetComponent<SpriteRenderer>().color = Color.white;
-        gameObject.layer = originalLayer; // Enemy = 7
-
+        animator.SetTrigger("Unfreeze"); // Activar animación de descongelación
+        //GetComponent<SpriteRenderer>().color = Color.white;      
         Debug.Log("Arrow unfrozen.");
+    }
+
+    public void AfterUnfreeze()
+    {
+        //isFrozen = false;
+        //gameObject.layer = originalLayer; // Enemy = 7
+        Destroy(gameObject); // Destruir la flecha después de descongelarla
     }
 }
