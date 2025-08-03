@@ -5,13 +5,15 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyList;
+    Animator animator;
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
         BasicEnemy.OnEnemyDied += OnEnemyDied;
+        animator.SetBool("Open", false); // Aseguramos que la puerta esté cerrada al activarse
     }
     private void OnDisable()
     {
@@ -55,6 +57,14 @@ public class Door : MonoBehaviour
     {
         Debug.Log("¡Todos los enemigos han muerto! Puerta abierta.");
         // Aquí puedes activar animación, colisionador, efecto, etc.
-        gameObject.SetActive(false); // o anim.SetTrigger("Open");
+        //gameObject.SetActive(false); // o anim.SetTrigger("Open");
+        animator.SetBool("Open", true);
     }
+
+    public void DisableDoor()
+    {
+        gameObject.SetActive(false);
+    }
+
+
 }

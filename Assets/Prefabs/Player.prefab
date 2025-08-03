@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 7618580277283342804}
   - component: {fileID: 7037109208000162898}
   - component: {fileID: 6948988471146854914}
-  - component: {fileID: 6700296426983085800}
   - component: {fileID: 854857354879776718}
   - component: {fileID: 2309597840992838451}
   - component: {fileID: 6612083678291843220}
@@ -345,27 +344,6 @@ MonoBehaviour:
     m_Bits: 128
   cooldown: 1
   frostParticlesPrefab: {fileID: 2453030887342606750, guid: 69653caecb3ec004d91a5dea10cd022b, type: 3}
---- !u!114 &6700296426983085800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6678709629334805589}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a0d3bf35c1f79048a8761a7670093ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laserOrigin: {fileID: 5583541458025128604}
-  laserLength: 10
-  duration: 1
-  cooldown: 2
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 192
-  lineRenderer: {fileID: 527453785420108553}
-  impactParticlesPrefab: {fileID: 5988260673125676271, guid: e5cdc5d7d9e47c045b089e05e290c67b, type: 3}
 --- !u!114 &854857354879776718
 MonoBehaviour:
   m_ObjectHideFlags: 0

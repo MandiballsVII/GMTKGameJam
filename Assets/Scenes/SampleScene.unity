@@ -256,14 +256,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 400347805051210234, guid: 83896f43945443f4e9c39f93e07a8c79, type: 3}
-      propertyPath: m_Size.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 400347805051210234, guid: 83896f43945443f4e9c39f93e07a8c79, type: 3}
-      propertyPath: m_Size.y
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 849948507669463942, guid: 83896f43945443f4e9c39f93e07a8c79, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.76
@@ -307,18 +299,6 @@ PrefabInstance:
     - target: {fileID: 4876105183117772131, guid: 83896f43945443f4e9c39f93e07a8c79, type: 3}
       propertyPath: m_Name
       value: SandBall
-      objectReference: {fileID: 0}
-    - target: {fileID: 8386388392442046788, guid: 83896f43945443f4e9c39f93e07a8c79, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8452892334329464534, guid: 83896f43945443f4e9c39f93e07a8c79, type: 3}
-      propertyPath: m_Radius
-      value: 0.25278664
-      objectReference: {fileID: 0}
-    - target: {fileID: 8452892334329464534, guid: 83896f43945443f4e9c39f93e07a8c79, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.7311907
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1811,6 +1791,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 7244278848618070087, guid: 8daaa0e3b5a12574eafb226ae214f380, type: 3}
+      propertyPath: laserBeamIcon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7692561080044903991, guid: 8daaa0e3b5a12574eafb226ae214f380, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1892,8 +1876,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3170132789738320173, guid: 8daaa0e3b5a12574eafb226ae214f380, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8daaa0e3b5a12574eafb226ae214f380, type: 3}
@@ -1948,18 +1931,6 @@ PrefabInstance:
     - target: {fileID: 4949032574925945034, guid: 09d27ab06a74a7b49a143b4885f788d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945576887285593346, guid: 09d27ab06a74a7b49a143b4885f788d6, type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945576887285593346, guid: 09d27ab06a74a7b49a143b4885f788d6, type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7945576887285593346, guid: 09d27ab06a74a7b49a143b4885f788d6, type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8032445931743694721, guid: 09d27ab06a74a7b49a143b4885f788d6, type: 3}
       propertyPath: target
@@ -2140,8 +2111,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6700296426983085800, guid: 01103d073e1f3f64585361914345d31e, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2331,7 +2301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 978094807589249797, guid: 38608bf5a002c11479b450fcc0876af9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8797118027730944352, guid: 38608bf5a002c11479b450fcc0876af9, type: 3}
       propertyPath: m_LocalPosition.x

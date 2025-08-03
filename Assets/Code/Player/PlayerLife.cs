@@ -24,7 +24,13 @@ public class PlayerLife : MonoBehaviour
 
     void Update()
     {
-        
+        if (PauseMenu.isPaused)
+            return;
+
+        if (Input.GetButtonDown("Restart"))
+        {
+            RespawnFromDeath();
+        }
     }
 
     public void RespawnFromDeath()
