@@ -22,6 +22,8 @@ public class BasicEnemy : MonoBehaviour, IFreezable
     private GameObject player;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    private BoxCollider2D boxCollider;
+    private Effector2D effector;
 
     [HideInInspector] public bool isFrozen = false;
     private float freezeTimer = 0f;
@@ -52,6 +54,8 @@ public class BasicEnemy : MonoBehaviour, IFreezable
         animator = GetComponent<Animator>();
         pointAPosition = pointA.position;
         pointBPosition = pointB.position;
+        boxCollider = GetComponent<BoxCollider2D>();
+        effector = GetComponent<Effector2D>();
 
         // Opcional: desactivar o destruir los objetos visuales
         pointA.gameObject.SetActive(false);
@@ -61,6 +65,8 @@ public class BasicEnemy : MonoBehaviour, IFreezable
     private void OnEnable()
     {
         currentState = State.Patrolling;
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>(), false);
+        boxCollider.excludeLayers = LayerMask.GetMask("");
     }
     private void Update()
     {
@@ -229,7 +235,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isFrozen && currentState != State.Diying && collision.gameObject.CompareTag("Player"))
+        if (!isFrozen && currentState != State.Diying && currentState != State.Recovering && collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerLife>()?.RespawnFromDeath();
         }
@@ -240,6 +246,7 @@ public class BasicEnemy : MonoBehaviour, IFreezable
         // Tu lógica de muerte: animaciones, efectos, etc.
         OnEnemyDied?.Invoke(this); // lanza el evento
         currentState = State.Diying;
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>(), true);
         animator.SetInteger("State", (int)State.Diying);
         AudioManager.instance.PlaySFX(AudioManager.instance.enemyDeath);
     }

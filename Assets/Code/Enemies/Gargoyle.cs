@@ -28,7 +28,9 @@ public class Gargoyle : MonoBehaviour
     {
         if (arrowPrefab == null || shootPoint == null) return;
 
-        GameObject arrow = Instantiate(arrowPrefab, shootPoint.position, Quaternion.identity);
+        float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg + 180f;
+
+        GameObject arrow = Instantiate(arrowPrefab, shootPoint.position, Quaternion.Euler(0, 0, angle));
 
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
         if (rb != null)

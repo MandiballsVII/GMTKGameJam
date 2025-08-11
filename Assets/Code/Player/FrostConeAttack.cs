@@ -13,7 +13,7 @@ public class FrostConeAttack : MonoBehaviour
     [Space]
     [Header("<size=15><color=#008B8B>Cooldown</color></size>")]
     public float cooldown = 1f;
-    private bool isOnCooldown = false;
+    [SerializeField] private bool isOnCooldown = false;
 
     [Space]
     [Header("<size=15><color=#008B8B>Frost particles</color></size>")]

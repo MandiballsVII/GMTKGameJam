@@ -6,7 +6,7 @@ public class Door : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyList;
     Animator animator;
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
     }

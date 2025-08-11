@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3421682502616322908}
   - component: {fileID: 3003133226148219727}
   - component: {fileID: 4066341538118238007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SandBallExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}

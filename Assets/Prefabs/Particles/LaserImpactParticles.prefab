@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3314415748442875112}
   - component: {fileID: 4353216632526887240}
   - component: {fileID: 5791983101073108401}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LaserImpactParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

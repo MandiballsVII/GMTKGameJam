@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2528549242441251260}
   - component: {fileID: 2453030887342606750}
   - component: {fileID: 9052953715364683169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrostParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
